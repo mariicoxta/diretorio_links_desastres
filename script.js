@@ -1,4 +1,3 @@
-
 const links = [
   {
     titulo: "S2iD - Sistema Integrado de Informacoes sobre Desastres",
@@ -33,13 +32,19 @@ const links = [
 ];
 
 function filtrarLinks() {
-  const filtro = document.getElementById("tipoDesastre").value;
+  const filtroTipo = document.getElementById("tipoDesastre").value.toLowerCase();
+  const palavraChave = document.getElementById("buscaPalavra").value.toLowerCase();
   const container = document.getElementById("containerLinks");
   container.innerHTML = "";
 
-  const filtrados = links.filter(link => 
-    filtro === "todos" || link.tipo === filtro || link.tipo === "todos"
-  );
+  const filtrados = links.filter(link => {
+    const tipoOk = filtroTipo === "todos" || link.tipo === filtroTipo || link.tipo === "todos";
+    const palavraOk = palavraChave === "" ||
+      link.titulo.toLowerCase().includes(palavraChave) ||
+      link.descricao.toLowerCase().includes(palavraChave);
+
+    return tipoOk && palavraOk;
+  });
 
   filtrados.forEach(link => {
     const card = document.createElement("div");
@@ -51,3 +56,4 @@ function filtrarLinks() {
 }
 
 window.onload = filtrarLinks;
+
