@@ -1,20 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Diretório de Links sobre Desastres</title>
+  <title>Diretorio de Links sobre Desastres</title>
   <style>
-    body {{ font-family: Arial, sans-serif; margin: 20px; background-color: #f0f0f0; }}
-    h1 {{ color: #333; }}
-    .filtros {{ margin-bottom: 20px; }}
-    .card {{
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f0f0f0; }
+    h1 { color: #333; }
+    .filtros { margin-bottom: 20px; }
+    .card {
       background: #fff; padding: 15px; margin-bottom: 10px;
       border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }}
+    }
   </style>
 </head>
 <body>
-  <h1>Diretório de Links sobre Desastres</h1>
+  <h1>Diretorio de Links sobre Desastres</h1>
   <div class="filtros">
     <label for="tipoDesastre">Tipo de desastre:</label>
     <select id="tipoDesastre" onchange="filtrarLinks()">
@@ -25,59 +26,6 @@
     </select>
   </div>
   <div id="containerLinks"></div>
-  <script>
-    const links = [
-  {
-    "titulo": "S2iD - Sistema Integrado de Informações sobre Desastres",
-    "descricao": "Ferramenta do Governo Federal para registro de desastres e solicitação de recursos.",
-    "url": "https://s2id.mi.gov.br/paginas/login/login.aspx",
-    "tipo": "todos"
-  },
-  {
-    "titulo": "Defesa Civil Nacional",
-    "descricao": "Portal com informações, alertas e orientações da Defesa Civil Nacional.",
-    "url": "https://www.gov.br/defesacivil/pt-br",
-    "tipo": "todos"
-  },
-  {
-    "titulo": "Monitor de Secas - ANA",
-    "descricao": "Mapa interativo sobre a evolução das secas no Brasil.",
-    "url": "https://monitordesecas.ana.gov.br",
-    "tipo": "seca"
-  },
-  {
-    "titulo": "Cemaden - Monitoramento de Riscos",
-    "descricao": "Alertas e previsões de desastres naturais emitidos pelo CEMADEN.",
-    "url": "https://www.cemaden.gov.br",
-    "tipo": "enchente"
-  },
-  {
-    "titulo": "Plataforma Alert-AS",
-    "descricao": "Sistema de alerta antecipado da Defesa Civil do Paraná para desastres naturais.",
-    "url": "https://alerta.defesacivil.pr.gov.br",
-    "tipo": "deslizamento"
-  }
-];
-
-    function filtrarLinks() {{
-      const filtro = document.getElementById("tipoDesastre").value;
-      const container = document.getElementById("containerLinks");
-      container.innerHTML = "";
-
-      const filtrados = links.filter(link => 
-        filtro === "todos" || link.tipo === filtro || link.tipo === "todos"
-      );
-
-      filtrados.forEach(link => {{
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `<h3><a href="${{link.url}}" target="_blank">${{link.titulo}}</a></h3>
-                          <p>${{link.descricao}}</p>`;
-        container.appendChild(card);
-      }});
-    }}
-
-    window.onload = filtrarLinks;
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
