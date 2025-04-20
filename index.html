@@ -12,22 +12,26 @@
       background: #fff; padding: 15px; margin-bottom: 10px;
       border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    input[type="text"] {
+      padding: 5px;
+      margin-left: 10px;
+    }
   </style>
 </head>
 <body>
   <h1>Diretorio de Links sobre Desastres</h1>
   <div class="filtros">
-  <label for="tipoDesastre">Tipo de desastre:</label>
-  <select id="tipoDesastre" onchange="filtrarLinks()">
-    <option value="todos">Todos</option>
-    <option value="enchente">Enchente</option>
-    <option value="seca">Seca</option>
-    <option value="deslizamento">Deslizamento</option>
-  </select>
+    <label for="tipoDesastre">Tipo de desastre:</label>
+    <select id="tipoDesastre" onchange="filtrarLinks()">
+      <option value="todos">Todos</option>
+      <option value="enchente">Enchente</option>
+      <option value="seca">Seca</option>
+      <option value="deslizamento">Deslizamento</option>
+    </select>
 
-  <label for="buscaPalavra" style="margin-left: 20px;">Buscar por palavra-chave:</label>
-  <input type="text" id="buscaPalavra" oninput="filtrarLinks()" placeholder="Digite algo...">
-</div>
+    <label for="buscaPalavra">Palavra-chave:</label>
+    <input type="text" id="buscaPalavra" oninput="filtrarLinks()" placeholder="Digite algo...">
+  </div>
   <div id="containerLinks"></div>
   <script src="script.js"></script>
 </body>
