@@ -317,7 +317,7 @@ function filtrarLinks() {
     const temaInput = document.getElementById("temaLink");
     if (temaInput) filtroTema = temaInput.value.toLowerCase();
     
-  const palavraChave = document.getElementById("buscaPalavra").value.toLowerCase();
+  const palavraChave = "";
   const container = document.getElementById("containerLinks");
   container.innerHTML = "";
 
