@@ -314,22 +314,17 @@ const links = [
 function filtrarLinks() {
   
     let filtroTema = "todos";
-    const temaInput = document.getElementById("temaLink");
-    if (temaInput) filtroTema = temaInput.value.toLowerCase();
+  const params = new URLSearchParams(window.location.search);
+  const temaParam = params.get("tema");
+  if (temaParam) filtroTema = temaParam.toLowerCase();
+
     
-  const palavraChave = "";
   const container = document.getElementById("containerLinks");
   container.innerHTML = "";
 
   const filtrados = links.filter(link => {
     const temaOk = filtroTema === "todos" || link.tema === filtroTema;
-    const palavraOk =
-      palavraChave === "" ||
-      link.titulo.toLowerCase().includes(palavraChave) ||
-      link.descricao.toLowerCase().includes(palavraChave) ||
-      link.assunto.toLowerCase().includes(palavraChave);
-
-    return temaOk && palavraOk;
+      return temaOk 
   });
 
   filtrados.forEach(link => {
