@@ -345,7 +345,3 @@ function filtrarLinks() {
 }
 
 window.onload = filtrarLinks;
-  });
-}
-
-window.onload = filtrarLinks;
