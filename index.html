@@ -103,56 +103,59 @@
   <h1>Repositório da Defesa Civil</h1>
   <input type="hidden" id="temaLink" value="todos">
   <div class="temas-container" id="temasContainer">
-    
-    <div class="tema-card" onclick="filtroTema('alerta')">
+   <select id="temasCard" onchange="temaCard()">
+     
+    <div class="temas-container" onclick="filtroTema('alerta')">
       <i data-lucide="alert-triangle"></i>
       <span>Alerta</span>
     </div>
       
-    <div class="tema-card" onclick="filtroTema('capacitacao')">
+    <div class="temas-container" onclick="filtroTema('capacitacao')">
       <i data-lucide="graduation-cap"></i>
       <span>Capacitação</span>
     </div>
-    
-    
-    <div class="tema-card" onclick="filtroTema('gereciamento')">
+        
+    <div class="temas-container" onclick="filtroTema('gereciamento')">
       <i data-lucide="shield-plus"></i>
       <span>Gereciamento do Desastre</span>
     </div>
     
-    <div class="tema-card" onclick="filtroTema('mapeamento')">
+    <div class="temas-container" onclick="filtroTema('mapeamento')">
       <i data-lucide="map"></i>
       <span>Mapeamento do Risco</span>
     </div>
     
-    <div class="tema-card" onclick="filtroTema('monitoramento')">
+    <div class="temas-container" onclick="filtroTema('monitoramento')">
       <i data-lucide="activity"></i>
       <span>Monitoramento</span>
     </div>
     
-    <div class="tema-card" onclick="filtroTema('previsao')">
+    <div class="temas-container" onclick="filtroTema('previsao')">
       <i data-lucide="cloud-rain"></i>
       <span>Previsão do Tempo</span>
     </div>
-  
+
+   </select>
+  <div class="resultados" id="containerLinks"></div>
+    
   <div class="voltar" id="voltarBtn">
     <button onclick="mostrarTemas()">← Voltar aos temas</button>
   </div>
-  <div class="resultados" id="containerLinks"></div>
+ 
   <script src="script.js"></script>
   <script>
     lucide.createIcons();
     function filtroTema(tema) {
       document.getElementById("temaLink").value = tema;
-      document.getElementById("containerLinks").style.display = "none";
+      document.getElementById("temasContainer").style.display = "none";
       document.getElementById("voltarBtn").style.display = "block";
-      document.getElementById("temaOk").style.display = "block";
+      document.getElementById("temasCard").style.display = "block";
       filtrarLinks();
     }
     function mostrarTemas() {
       document.getElementById("temasContainer").style.display = "flex";
       document.getElementById("voltarBtn").style.display = "none";
-      document.getElementById("containerLinks").style.display = "none";
+      document.getElementById("temasCard").style.display = "none";
       document.getElementById("temaLink").value = "todos";
     }
   </script>
