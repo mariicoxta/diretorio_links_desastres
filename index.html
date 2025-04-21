@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Diretório de Links por Tema</title>
+  <title>Repositório da Defesa Civil</title>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
@@ -22,25 +22,22 @@
     }
 
     .temas-container {
-      max-width: 1000px;
-      margin: 0 auto 40px auto;
-      justify-content: space-around;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-around;
       gap: 20px;
-      margin-bottom: 40px;
+      max-width: 1000px;
+      margin: 0 auto 40px auto;
       transition: opacity 0.3s ease;
     }
 
     .tema-card {
-      flex: 1 1 220px;
-      min-width: 200px;
-      max-width: 220px;
       background: white;
       border-radius: 12px;
       padding: 20px;
-      width: 160px;
+      flex: 1 1 220px;
+      min-width: 200px;
+      max-width: 220px;
       height: 120px;
       display: flex;
       flex-direction: column;
@@ -63,10 +60,6 @@
       font-size: 14px;
     }
 
-    .tema-card svg {
-      color: #00507A;
-    }
-
     .voltar {
       display: none;
       margin: 20px auto;
@@ -81,11 +74,6 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .voltar button:hover {
-      background-color: #003e59;
     }
 
     .resultados {
@@ -93,11 +81,6 @@
       margin: 0 auto;
       display: none;
       animation: fadeIn 0.5s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .card {
@@ -111,7 +94,8 @@
     .card h3 {
       margin-top: 0;
       color: #00507A;
-      font-size: 18px;
+      font-size: 20px;
+      text-align: center;
     }
 
     .card p {
@@ -133,26 +117,15 @@
   <h1>Repositório da Defesa Civil</h1>
 
   <input type="hidden" id="temaLink" value="todos">
+
   <div class="temas-container" id="temasContainer">
-    <div class="tema-card" onclick="filtrarTema('alerta')">
-      <i data-lucide="alert-triangle"></i>
-      <span>Alerta</span>
+    <div class="tema-card" onclick="filtrarTema('monitoramento')">
+      <i data-lucide="activity"></i>
+      <span>Monitoramento</span>
     </div>
     <div class="tema-card" onclick="filtrarTema('capacitacao')">
       <i data-lucide="graduation-cap"></i>
       <span>Capacitação</span>
-    </div>
-    <div class="tema-card" onclick="filtrarTema('gerenciamento')">
-      <i data-lucide="clipboard-list"></i>
-      <span>Gerenciamento</span>
-    </div>
-    <div class="tema-card" onclick="filtrarTema('mapeamento')">
-      <i data-lucide="map"></i>
-      <span>Mapeamento</span>
-    </div>
-    <div class="tema-card" onclick="filtrarTema('monitoramento')">
-      <i data-lucide="activity"></i>
-      <span>Monitoramento</span>
     </div>
     <div class="tema-card" onclick="filtrarTema('previsao')">
       <i data-lucide="cloud-rain"></i>
@@ -169,7 +142,6 @@
   <script src="script.js"></script>
   <script>
     lucide.createIcons();
-
     function filtrarTema(tema) {
       document.getElementById("temaLink").value = tema;
       document.getElementById("temasContainer").style.display = "none";
@@ -177,7 +149,6 @@
       document.getElementById("containerLinks").style.display = "block";
       filtrarLinks();
     }
-
     function mostrarTemas() {
       document.getElementById("temasContainer").style.display = "flex";
       document.getElementById("voltarBtn").style.display = "none";
