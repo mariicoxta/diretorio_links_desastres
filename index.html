@@ -2,30 +2,141 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Diretorio de Links sobre Desastres</title>
+  <meta charset="UTF-8" />
+  <title>Diretório de Links sobre Desastres</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f0f0f0; }
-    h1 { color: #333; }
-    .filtros { margin-bottom: 20px; }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9fafc;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
+      color: #00507A;
+    }
+
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .filtros label {
+      font-weight: bold;
+    }
+
+    .filtros select,
+    .filtros input {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
     .card {
-      background: #fff; padding: 15px; margin-bottom: 10px;
-      border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 750px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #00507A;
+    }
+
+    .card p {
+      margin: 6px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: white;
+      background-color: #777;
+      padding: 4px 8px;
+      border-radius: 20px;
+      margin-right: 6px;
+    }
+
+    .tag.tema { background-color: #007BFF; }
+    .tag.ministerio { background-color: #28A745; }
+    .tag.instituicao { background-color: #17A2B8; }
+
+    .card a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .icon {
+      width: 14px;
+      height: 14px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .filtros {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .card {
+        margin: 10px 15px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Diretorio de Links sobre Desastres</h1>
+  <h1>Diretório de Links sobre Desastres</h1>
+
   <div class="filtros">
-    <label for="tipoDesastre">Tipo de desastre:</label>
-    <select id="tipoDesastre" onchange="filtrarLinks()">
+    <label for="temaLink">Tema:</label>
+    <select id="temaLink" onchange="filtrarLinks()">
       <option value="todos">Todos</option>
-      <option value="enchente">Enchente</option>
-      <option value="seca">Seca</option>
-      <option value="deslizamento">Deslizamento</option>
+      <option value="alerta">Alerta</option>
+      <option value="capacitacao">Capacitação</option>
+      <option value="gerenciamento">Gerenciamento do Desastre</option>
+      <option value="mapeamento">Mapeamento do Risco</option>
+      <option value="monitoramento">Monitoramento</option>
+      <option value="previsao">Previsão do Tempo</option>
     </select>
+
+    <label for="buscaPalavra">Palavra-chave:</label>
+    <input type="text" id="buscaPalavra" oninput="filtrarLinks()" placeholder="Digite algo..." />
   </div>
+
   <div id="containerLinks"></div>
+
   <script src="script.js"></script>
+  <script>
+    // Ativar ícones após carregamento
+    window.addEventListener("load", () => {
+      lucide.createIcons();
+    });
+  </script>
 </body>
 </html>
