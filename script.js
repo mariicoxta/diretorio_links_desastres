@@ -336,6 +336,12 @@ function filtrarLinks() {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
+      <h3 style="text-align:center; font-size: 20px; margin-bottom: 8px;">${link.subtema}</h3>
+      <p style="text-align:center; font-weight: bold; margin: 0;">${link.instituicao}</p>
+      <p style="text-align:center; font-size: 12px; color: #666; margin: 4px 0 10px;">${link.ministerio}</p>
+      <p style="text-align:center;">${link.assunto}</p>
+      <p style="text-align:center; margin-top: 10px;"><a href="${link.url}" target="_blank">Acessar link</a></p>
+
       <h3 style="text-align:center; font-size: 20px; margin-bottom: 5px;">${link.subtema}</h3>
       <p style="text-align:center; font-weight: bold; margin: 0;">${link.instituicao}</p>
       <p style="text-align:center; font-size: 12px; color: #666; margin-bottom: 10px;">${link.ministerio}</p>
