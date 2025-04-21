@@ -312,25 +312,21 @@ const links = [
 ];
 
 function filtrarLinks() {
-  
-    let filtroTema = "todos";
-    const temaInput = document.getElementById("temaLink");
-    if (temaInput) filtroTema = temaInput.value.toLowerCase();
-    
-  const palavraChave = document.getElementById("buscaPalavra").value.toLowerCase();
+  let filtroTema = "todos";
+  const temaInput = document.getElementById("temaLink");
+  if (temaInput) filtroTema = temaInput.value.toLowerCase();
+
   const container = document.getElementById("containerLinks");
   container.innerHTML = "";
 
   const filtrados = links.filter(link => {
-    const temaOk = filtroTema === "todos" || link.tema === filtroTema;
-    const palavraOk =
-      palavraChave === "" ||
-      link.titulo.toLowerCase().includes(palavraChave) ||
-      link.descricao.toLowerCase().includes(palavraChave) ||
-      link.assunto.toLowerCase().includes(palavraChave);
-
-    return temaOk && palavraOk;
+    return filtroTema === "todos" || link.tema === filtroTema;
   });
+
+  if (filtrados.length === 0) {
+    container.innerHTML = "<p>Nenhum resultado encontrado para este tema.</p>";
+    return;
+  }
 
   filtrados.forEach(link => {
     const card = document.createElement("div");
@@ -347,5 +343,6 @@ function filtrarLinks() {
     container.appendChild(card);
   });
 }
+
 
 window.onload = filtrarLinks;
