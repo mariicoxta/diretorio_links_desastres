@@ -312,7 +312,11 @@ const links = [
 ];
 
 function filtrarLinks() {
-  const filtroTema = document.getElementById("temaLink").value.toLowerCase();
+  
+    let filtroTema = "todos";
+    const temaInput = document.getElementById("temaLink");
+    if (temaInput) filtroTema = temaInput.value.toLowerCase();
+    
   const palavraChave = document.getElementById("buscaPalavra").value.toLowerCase();
   const container = document.getElementById("containerLinks");
   container.innerHTML = "";
