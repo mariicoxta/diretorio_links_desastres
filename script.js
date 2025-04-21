@@ -314,33 +314,31 @@ const links = [
 function filtrarLinks() {
   
     let filtroTema = "todos";
-    const temaInput = document.getElementById("temaLink");
-    if (temaInput) filtroTema = temaInput.value.toLowerCase();
-    
-  const palavraChave = document.getElementById("buscaPalavra").value.toLowerCase();
-  const container = document.getElementById("containerLinks");
-  container.innerHTML = "";
+   const temaInput = document.getElementById("temaLink");
+   if (temaInput) filtroTema = temaInput.value.toLowerCase();
+ 
+   const container = document.getElementById("containerLinks");
+   container.innerHTML = "";
+ 
+   const filtrados = links.filter(link => {
 
-  const filtrados = links.filter(link => {
-    const temaOk = filtroTema === "todos" || link.tema === filtroTema;
-    const palavraOk =
-      palavraChave === "" ||
-      link.titulo.toLowerCase().includes(palavraChave) ||
-      link.descricao.toLowerCase().includes(palavraChave) ||
-      link.assunto.toLowerCase().includes(palavraChave);
-
-    return temaOk && palavraOk;
-  });
-
-  filtrados.forEach(link => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = ` `
-      <h3>${link.titulo}</h3>
-      <p><strong>Tema:</strong> ${link.tema}</p>
-      <p><strong>Subtema:</strong> ${link.subtema}</p>
-      <p><strong>Ministério:</strong> ${link.ministerio}</p>
-      <p><strong>Instituição:</strong> ${link.instituicao}</p>
-      <p><strong>Assunto:</strong> ${link.assunto}</p>
-      <p><a href="${link.url}" target="_blank">Acessar link</a></p>
-    `;
+     
+     return filtroTema === "todos" || link.tema === filtroTema;
+   });
+ 
+   if (filtrados.length === 0) {
+     container.innerHTML = "<p>Nenhum resultado encontrado para este tema.</p>";
+     return;
+   }
+ 
+   filtrados.forEach(link => {
+     const card = document.createElement("div");
+     card.className = "card";
+ <h3>${link.titulo}</h3>
+       <p><strong>Tema:</strong> ${link.tema}</p>
+       <p><strong>Subtema:</strong> ${link.subtema}</p>
+       <p><strong>Ministério:</strong> ${link.ministerio}</p>
+       <p><strong>Instituição:</strong> ${link.instituicao}</p>
+       <p><strong>Assunto:</strong> ${link.assunto}</p>
+       <p><a href="${link.url}" target="_blank">Acessar link</a></p>
+      `;
