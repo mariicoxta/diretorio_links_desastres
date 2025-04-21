@@ -331,10 +331,10 @@ function filtrarLinks() {
      return;
    }
  
-   filtrados.forEach(link => {
+   filtrados.forEach(link => 
      const card = document.createElement("div");
      card.className = "card";
- <h3>${link.titulo}</h3>
+ <h3>${link.titulo}<h3>
        <p><strong>Tema:</strong> ${link.tema}</p>
        <p><strong>Subtema:</strong> ${link.subtema}</p>
        <p><strong>Ministério:</strong> ${link.ministerio}</p>
@@ -342,3 +342,4 @@ function filtrarLinks() {
        <p><strong>Assunto:</strong> ${link.assunto}</p>
        <p><a href="${link.url}" target="_blank">Acessar link</a></p>
       `;
+      }}
