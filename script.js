@@ -1,50 +1,37 @@
-
 const links = [
   {
-    titulo: "S2iD - Sistema Integrado de Informacoes sobre Desastres",
-    descricao: "Ferramenta do Governo Federal para registro de desastres e solicitacao de recursos.",
-    url: "https://s2id.mi.gov.br/paginas/login/login.aspx",
-    tipo: "todos"
-  },
-  {
-    titulo: "Defesa Civil Nacional",
-    descricao: "Portal com informacoes, alertas e orientacoes da Defesa Civil Nacional.",
-    url: "https://www.gov.br/defesacivil/pt-br",
-    tipo: "todos"
-  },
-  {
-    titulo: "Monitor de Secas - ANA",
-    descricao: "Mapa interativo sobre a evolucao das secas no Brasil.",
-    url: "https://monitordesecas.ana.gov.br",
-    tipo: "seca"
-  },
-  {
     titulo: "Cemaden - Monitoramento de Riscos",
-    descricao: "Alertas e previsoes de desastres naturais emitidos pelo CEMADEN.",
+    descricao: "Alertas e previsões de desastres naturais emitidos pelo CEMADEN.",
     url: "https://www.cemaden.gov.br",
-    tipo: "enchente"
+    tema: "monitoramento"
   },
   {
-    titulo: "Plataforma Alert-AS",
-    descricao: "Sistema de alerta antecipado da Defesa Civil do Parana para desastres naturais.",
+    titulo: "Alert-AS - Defesa Civil PR",
+    descricao: "Sistema de alerta antecipado da Defesa Civil do Paraná para desastres naturais.",
     url: "https://alerta.defesacivil.pr.gov.br",
-    tipo: "deslizamento"
+    tema: "alerta"
+  },
+  {
+    titulo: "S2iD - Registro de Desastres",
+    descricao: "Ferramenta para gerenciamento do desastre e solicitação de recursos.",
+    url: "https://s2id.mi.gov.br",
+    tema: "gerenciamento"
   }
 ];
 
 function filtrarLinks() {
-  const filtroTipo = document.getElementById("tipoDesastre").value.toLowerCase();
+  const filtroTema = document.getElementById("temaLink").value.toLowerCase();
   const palavraChave = document.getElementById("buscaPalavra").value.toLowerCase();
   const container = document.getElementById("containerLinks");
   container.innerHTML = "";
 
   const filtrados = links.filter(link => {
-    const tipoOk = filtroTipo === "todos" || link.tipo === filtroTipo || link.tipo === "todos";
+    const temaOk = filtroTema === "todos" || link.tema === filtroTema;
     const palavraOk = palavraChave === "" ||
       link.titulo.toLowerCase().includes(palavraChave) ||
       link.descricao.toLowerCase().includes(palavraChave);
 
-    return tipoOk && palavraOk;
+    return temaOk && palavraOk;
   });
 
   filtrados.forEach(link => {
@@ -53,6 +40,11 @@ function filtrarLinks() {
     card.innerHTML = `<h3><a href="${link.url}" target="_blank">${link.titulo}</a></h3>
                       <p>${link.descricao}</p>`;
     container.appendChild(card);
+  });
+}
+
+window.onload = filtrarLinks;
+
   });
 }
 
