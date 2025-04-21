@@ -317,13 +317,19 @@ function filtrarLinks() {
     const temaInput = document.getElementById("temaLink");
     if (temaInput) filtroTema = temaInput.value.toLowerCase();
     
-   const container = document.getElementById("containerLinks");
+  const palavraChave = "";
+  const container = document.getElementById("containerLinks");
   container.innerHTML = "";
 
   const filtrados = links.filter(link => {
     const temaOk = filtroTema === "todos" || link.tema === filtroTema;
- 
-    return temaOk;
+    const palavraOk =
+      palavraChave === "" ||
+      link.titulo.toLowerCase().includes(palavraChave) ||
+      link.descricao.toLowerCase().includes(palavraChave) ||
+      link.assunto.toLowerCase().includes(palavraChave);
+
+    return temaOk && palavraOk;
   });
 
   filtrados.forEach(link => {

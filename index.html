@@ -13,32 +13,28 @@
       background-color: #f4f7fa;
       color: #333;
     }
-
     h1 {
       text-align: center;
       margin-bottom: 30px;
       font-size: 26px;
       color: #00507A;
     }
-
     .temas-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: center;
       gap: 20px;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto 40px auto;
-      transition: opacity 0.3s ease;
     }
-
     .tema-card {
       background: white;
       border-radius: 12px;
       padding: 20px;
       flex: 1 1 220px;
-      min-width: 200px;
-      max-width: 220px;
-      height: 120px;
+      min-width: 220px;
+      max-width: 280px;
+      height: 140px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -48,24 +44,20 @@
       transition: transform 0.2s, background 0.2s;
       text-align: center;
     }
-
     .tema-card:hover {
       transform: scale(1.05);
       background-color: #eef4ff;
     }
-
     .tema-card span {
       margin-top: 10px;
       font-weight: bold;
       font-size: 14px;
     }
-
     .voltar {
       display: none;
       margin: 20px auto;
       text-align: center;
     }
-
     .voltar button {
       background-color: #00507A;
       color: white;
@@ -75,14 +67,12 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
     .resultados {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       display: none;
       animation: fadeIn 0.5s ease;
     }
-
     .card {
       background: white;
       border-radius: 10px;
@@ -90,24 +80,20 @@
       margin: 10px 0;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-
     .card h3 {
       margin-top: 0;
       color: #00507A;
       font-size: 20px;
       text-align: center;
     }
-
     .card p {
       margin: 5px 0;
     }
-
     .card a {
       color: #007BFF;
       text-decoration: none;
       font-weight: bold;
     }
-
     .card a:hover {
       text-decoration: underline;
     }
@@ -115,42 +101,14 @@
 </head>
 <body>
   <h1>Repositório da Defesa Civil</h1>
-
   <input type="hidden" id="temaLink" value="todos">
-
- <div class="tema-card" onclick="filtrarTema('alerta')">
-       <i data-lucide="alert-triangle"></i>
-       <span>Alerta</span>
-     <div class="tema-card" onclick="filtrarTema('monitoramento')">
-       <i data-lucide="activity"></i>
-       <span>Monitoramento</span>
-     </div>
-     <div class="tema-card" onclick="filtrarTema('capacitacao')">
-       <i data-lucide="graduation-cap"></i>
-       <span>Capacitação</span>
-     </div>
-     <div class="tema-card" onclick="filtrarTema('gerenciamento')">
-       <i data-lucide="clipboard-list"></i>
-       <span>Gerenciamento</span>
-     </div>
-     <div class="tema-card" onclick="filtrarTema('mapeamento')">
-       <i data-lucide="map"></i>
-       <span>Mapeamento</span>
-     </div>
-     <div class="tema-card" onclick="filtrarTema('monitoramento')">
-       <i data-lucide="activity"></i>
-       <span>Monitoramento</span>
-     </div>
-     <div class="tema-card" onclick="filtrarTema('previsao')">
-       <i data-lucide="cloud-rain"></i>
-       <span>Previsão do Tempo</span>
-
+  <div class="temas-container" id="temasContainer">
+    
+  </div>
   <div class="voltar" id="voltarBtn">
     <button onclick="mostrarTemas()">← Voltar aos temas</button>
   </div>
-
   <div class="resultados" id="containerLinks"></div>
-
   <script src="script.js"></script>
   <script>
     lucide.createIcons();
