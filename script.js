@@ -311,17 +311,14 @@ const links = [
   },
 ];
 
-function filtrarLinks() {
-  
-    let filtroTema = "todos";
-  const filtroTema = document.getElementById("temaLink").value.toLowerCase();
+function TemaCard() {
+  const filtro = document.getElementById("temaLink").value.toLowerCase();
     
-  const container = document.getElementById("containerLinks");
+  const container = document.getElementById("temasContainer");
   container.innerHTML = "";
 
   const filtrados = links.filter(link => {
-    const temaOk = filtroTema === "todos" || link.tema === filtroTema;
-      return temaOk 
+    filtro === "todos" || link.tipo === filtro; || link.tema === "todos"
   });
 
   filtrados.forEach(link => {
@@ -339,4 +336,4 @@ function filtrarLinks() {
   });
 }
 
-window.onload = filtrarLinks;
+window.onload = TemaCard;
