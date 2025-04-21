@@ -118,20 +118,32 @@
 
   <input type="hidden" id="temaLink" value="todos">
 
-  <div class="temas-container" id="temasContainer">
-    <div class="tema-card" onclick="filtrarTema('monitoramento')">
-      <i data-lucide="activity"></i>
-      <span>Monitoramento</span>
-    </div>
-    <div class="tema-card" onclick="filtrarTema('capacitacao')">
-      <i data-lucide="graduation-cap"></i>
-      <span>Capacitação</span>
-    </div>
-    <div class="tema-card" onclick="filtrarTema('previsao')">
-      <i data-lucide="cloud-rain"></i>
-      <span>Previsão do Tempo</span>
-    </div>
-  </div>
+ <div class="tema-card" onclick="filtrarTema('alerta')">
+       <i data-lucide="alert-triangle"></i>
+       <span>Alerta</span>
+     <div class="tema-card" onclick="filtrarTema('monitoramento')">
+       <i data-lucide="activity"></i>
+       <span>Monitoramento</span>
+     </div>
+     <div class="tema-card" onclick="filtrarTema('capacitacao')">
+       <i data-lucide="graduation-cap"></i>
+       <span>Capacitação</span>
+     </div>
+     <div class="tema-card" onclick="filtrarTema('gerenciamento')">
+       <i data-lucide="clipboard-list"></i>
+       <span>Gerenciamento</span>
+     </div>
+     <div class="tema-card" onclick="filtrarTema('mapeamento')">
+       <i data-lucide="map"></i>
+       <span>Mapeamento</span>
+     </div>
+     <div class="tema-card" onclick="filtrarTema('monitoramento')">
+       <i data-lucide="activity"></i>
+       <span>Monitoramento</span>
+     </div>
+     <div class="tema-card" onclick="filtrarTema('previsao')">
+       <i data-lucide="cloud-rain"></i>
+       <span>Previsão do Tempo</span>
 
   <div class="voltar" id="voltarBtn">
     <button onclick="mostrarTemas()">← Voltar aos temas</button>
