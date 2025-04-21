@@ -85,13 +85,16 @@
 <body>
   <h1>Diretorio de Links sobre Desastres</h1>
   <div class="filtros">
-    <label for="tipoDesastre">Tipo de desastre:</label>
-    <select id="tipoDesastre" onchange="filtrarLinks()">
-      <option value="todos">Todos</option>
-      <option value="enchente">Enchente</option>
-      <option value="seca">Seca</option>
-      <option value="deslizamento">Deslizamento</option>
-    </select>
+    <label for="temaLink">Tema:</label>
+<select id="temaLink" onchange="filtrarLinks()">
+  <option value="todos">Todos</option>
+  <option value="alerta">Alerta</option>
+  <option value="capacitacao">Capacitação</option>
+  <option value="gerenciamento">Gerenciamento do Desastre</option>
+  <option value="mapeamento">Mapeamento do Risco</option>
+  <option value="monitoramento">Monitoramento</option>
+  <option value="previsao">Previsão do Tempo</option>
+</select>
 
     <label for="buscaPalavra">Palavra-chave:</label>
     <input type="text" id="buscaPalavra" oninput="filtrarLinks()" placeholder="Digite algo...">
