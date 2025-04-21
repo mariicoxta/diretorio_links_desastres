@@ -314,10 +314,7 @@ const links = [
 function filtrarLinks() {
   
     let filtroTema = "todos";
-  const params = new URLSearchParams(window.location.search);
-  const temaParam = params.get("tema");
-  if (temaParam) filtroTema = temaParam.toLowerCase();
-
+  const filtroTema = document.getElementById("temaLink").value.toLowerCase();
     
   const container = document.getElementById("containerLinks");
   container.innerHTML = "";
@@ -337,19 +334,6 @@ function filtrarLinks() {
       <p style="text-align:center;">${link.assunto}</p>
       <p style="text-align:center; margin-top: 10px;"><a href="${link.url}" target="_blank">Acessar link</a></p>
 
-      <h3 style="text-align:center; font-size: 20px; margin-bottom: 5px;">${link.subtema}</h3>
-      <p style="text-align:center; font-weight: bold; margin: 0;">${link.instituicao}</p>
-      <p style="text-align:center; font-size: 12px; color: #666; margin-bottom: 10px;">${link.ministerio}</p>
-      <p>${link.assunto}</p>
-      <p><a href="${link.url}" target="_blank">Acessar link</a></p>
-
-      <h3>${link.titulo}</h3>
-      <p><strong>Tema:</strong> ${link.tema}</p>
-      <p><strong>Subtema:</strong> ${link.subtema}</p>
-      <p><strong>Ministério:</strong> ${link.ministerio}</p>
-      <p><strong>Instituição:</strong> ${link.instituicao}</p>
-      <p><strong>Assunto:</strong> ${link.assunto}</p>
-      <p><a href="${link.url}" target="_blank">Acessar link</a></p>
     `;
     container.appendChild(card);
   });
