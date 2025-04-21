@@ -2,7 +2,7 @@ const links = [
   {
     titulo: "Defesa Civil Alerta",
     descricao: "Ferramenta de envio de alertas de emergência do Governo Federal, coordenada pela Defesa Civil Nacional e pela Anatel, utilizando a tecnologia Cell Broadcast para avisar e orientar as pessoas em localidades com risco iminente de desastres.",
-    url: "https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/defesa-civil-alerta",
+    url: "#",
     tema: "alerta",
     subtema: "Defesa Civil Alerta",
     ministerio: "Ministério da Integração e do Desenvolvimento Regional (MIDR)",
@@ -22,7 +22,7 @@ const links = [
   {
     titulo: "Sistema de Alerta de Eventos Críticos (SACE)",
     descricao: "Plataforma que reúne dados sobre secas, estiagens, inundações e outros eventos críticos com alertas e monitoramentos para apoio à defesa civil.",
-    url: "https://www.sgb.gov.br/sace/",
+    url: "#",
     tema: "alerta",
     subtema: "Sistema de Alerta de Eventos Críticos (SACE)",
     ministerio: "Ministério de Minas e Energia (MME)",
@@ -32,7 +32,7 @@ const links = [
   {
     titulo: "Painel de alertas",
     descricao: "Plataforma de consulta aos alertas vigentes emitidos pelo CEMADEN, com mapa interativo e atualização em tempo real.",
-    url: "https://painelalertas.cemaden.gov.br/",
+    url: "#",
     tema: "alerta",
     subtema: "Painel de alertas",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
@@ -42,7 +42,7 @@ const links = [
   {
     titulo: "Mapa interativo",
     descricao: "Ferramenta geoespacial que permite visualizar riscos, alertas, dados pluviométricos e hidrológicos, além de vulnerabilidades.",
-    url: "https://mapainterativo.cemaden.gov.br/",
+    url: "#",
     tema: "alerta",
     subtema: "Mapa interativo",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
@@ -62,8 +62,8 @@ const links = [
   {
     titulo: "Gestão de riscos e desastres no Brasil",
     descricao: "Órgão central do Sistema Nacional de Proteção e Defesa Civil (Sinpdec), responsável por coordenar a gestão de riscos e de desastres no país. Atua nas fases de prevenção, mitigação, preparação, resposta e recuperação.",
-    url: "https://www.gov.br/mdr/pt-br/centrais-de-conteudo/publicacoes/protecao-e-defesa-civil-sedec",
-    tema: "capacitacao",
+    url: "#",
+    tema: "capacitação",
     subtema: "Gestão de riscos e desastres no Brasil",
     ministerio: "Ministério da Integração e do Desenvolvimento Regional (MIDR)",
     instituicao: "Secretaria Nacional de Proteção e Defesa Civil (Sedec)",
@@ -72,8 +72,8 @@ const links = [
   {
     titulo: "Plano Nacional de Proteção e Defesa Civil",
     descricao: "Instrumento norteador da implementação da Política Nacional de Proteção e Defesa Civil, estabelecendo diretrizes, objetivos, metas e indicadores voltados para a gestão do risco de desastres.",
-    url: "https://www.gov.br/mdr/pt-br/noticias/saiba-tudo-sobre-o-plano-nacional-de-protecao-e-defesa-civil",
-    tema: "capacitacao",
+    url: "#",
+    tema: "capacitação",
     subtema: "Plano Nacional de Proteção e Defesa Civil",
     ministerio: "Ministério da Integração e do Desenvolvimento Regional (MIDR)",
     instituicao: "Secretaria Nacional de Proteção e Defesa Civil (Sedec)",
@@ -82,8 +82,8 @@ const links = [
   {
     titulo: "Curso Básico de Vigilância (CBVD)",
     descricao: "Oferta de turmas do Curso Básico de Vigilância em Saúde dos Riscos Associados aos Desastres.",
-    url: "https://educacao.cemaden.gov.br/midiateca/programa-vigidesastres/",
-    tema: "capacitacao",
+    url: "#",
+    tema: "capacitação",
     subtema: "Curso Básico de Vigilância (CBVD)",
     ministerio: "Ministério da Saúde",
     instituicao: "Programa Vigidesastres",
@@ -93,7 +93,7 @@ const links = [
     titulo: "Capacitação em Defesa Civil",
     descricao: "Ambiente virtual com cursos gratuitos, apostilas e vídeos para agentes públicos e comunidade. Parte do Plano de Capacitação Continuada em Defesa Civil.",
     url: "https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/capacitacoes",
-    tema: "capacitacao",
+    tema: "capacitação",
     subtema: "Capacitação em Defesa Civil",
     ministerio: "Ministério da Integração e do Desenvolvimento Regional (MIDR)",
     instituicao: "Secretaria Nacional de Proteção e Defesa Civil (Sedec)",
@@ -103,7 +103,7 @@ const links = [
     titulo: "Capacitação em Defesa Civil",
     descricao: "Acervo digital da área de Defesa Civil da CNM com publicações, manuais, notas técnicas, cartilhas e legislações sobre gestão de riscos e desastres, voltado para gestores municipais.",
     url: "https://cnm.org.br/areas_tecnicas/defesa-civil/biblioteca",
-    tema: "capacitacao",
+    tema: "capacitação",
     subtema: "Capacitação em Defesa Civil",
     ministerio: "Confederação Nacional de Municípios (CNM)",
     instituicao: "Área de Defesa Civil ",
@@ -112,8 +112,8 @@ const links = [
   {
     titulo: "Plano de Capacitação Continuada 2024–2028",
     descricao: "Estratégia de capacitação nacional com parceria de órgãos federais e da Escola Nacional de Administração Pública, oferecendo cursos gratuitos e online para agentes de proteção e defesa civil das três esferas de governo.",
-    url: "https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/capacitacoes/Plano_de_Capacitacao_2024_2028___Final.pdf",
-    tema: "capacitacao",
+    url: "#",
+    tema: "capacitação",
     subtema: "Plano de Capacitação Continuada 2024–2028",
     ministerio: "Ministério da Integração e do Desenvolvimento Regional (MIDR)",
     instituicao: "Secretaria Nacional de Proteção e Defesa Civil (Sedec)",
@@ -122,8 +122,8 @@ const links = [
   {
     titulo: "Banco de Boas Práticas em Proteção e Defesa Civil",
     descricao: "Repositório de boas práticas adotadas por coordenadorias municipais e estaduais, servindo de inspiração para outras defesas civis, com ações que resultaram em mudanças positivas e inovadoras na gestão de riscos e de desastres.",
-    url: "https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/boas-praticas",
-    tema: "capacitacao",
+    url: "#",
+    tema: "capacitação",
     subtema: "Banco de Boas Práticas em Proteção e Defesa Civil",
     ministerio: "Ministério da Integração e do Desenvolvimento Regional (MIDR)",
     instituicao: "Secretaria Nacional de Proteção e Defesa Civil (Sedec)",
@@ -132,8 +132,8 @@ const links = [
   {
     titulo: "Resposta a desastres com foco em animais",
     descricao: "Organização voluntária com mais de 80 integrantes, de diversas formações, que atua em resposta a desastres com foco na proteção e salvamento de animais (domésticos, domesticados, silvestres e de produção), sempre em coordenação com os órgãos oficiais. Destaque para a atuação no RS (2023-2024) com termo de cooperação com o governo estadual, além de ações em SP, SC, PI, Pantanal (MT) e Roraima (Yanomamis).",
-    url: "https://gradbrasil.org.br/",
-    tema: "gereciamento",
+    url: "#",
+    tema: "gereciamentododesastre",
     subtema: "Resposta a desastres com foco em animais",
     ministerio: "Não se aplica (iniciativa da sociedade civil)",
     instituicao: "Grupo de Resposta a Animais em Desastres (GRAD)",
@@ -143,7 +143,7 @@ const links = [
     titulo: "Apoio emergencial a municípios",
     descricao: "Em situações de emergência ou calamidade pública, como chuvas intensas, o MDS oferece: 1) cofinanciamento emergencial para abrigamento de desabrigados; 2) unificação do pagamento do Bolsa Família; e 3) Ação de Distribuição de Alimentos (ADA). Também disponibiliza orientações para que gestores municipais solicitem o auxílio de forma ágil.",
     url: "https://www.gov.br/mds/pt-br/noticias-e-conteudos/desenvolvimento-social/noticias-desenvolvimento-social/gestor-saiba-como-acessar-os-auxilios-emergenciais-do-mds-para-municipios-em-situacao-de-calamidade",
-    tema: "gereciamento",
+    tema: "gereciamentododesastre",
     subtema: "Apoio emergencial a municípios",
     ministerio: "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome (MDS)",
     instituicao: "MDS",
@@ -152,8 +152,8 @@ const links = [
   {
     titulo: "Sistema Integrado de Informações sobre Desastres (S2ID)",
     descricao: "Ferramenta informatizada que permite o registro de ocorrências de desastres em todos os municípios, possibilitando ainda que municípios e estados solicitem o reconhecimento e recursos ao governo federal.",
-    url: "https://s2id.mi.gov.br/",
-    tema: "gereciamento",
+    url: "#",
+    tema: "gereciamentododesastre",
     subtema: "Sistema Integrado de Informações sobre Desastres (S2ID)",
     ministerio: "Ministério da Integração e do Desenvolvimento Regional (MIDR)",
     instituicao: "Secretaria Nacional de Proteção e Defesa Civil (Sedec)",
@@ -162,8 +162,8 @@ const links = [
   {
     titulo: "Atlas Digital de Desastres no Brasil",
     descricao: "Ferramenta para análise e consulta das informações relacionadas a desastres no Brasil, com dados oficiais da Sedec/MIDR no âmbito municipal, permitindo pesquisas por estados, tipo de desastre e categoria de impacto.",
-    url: "https://atlasdigital.mdr.gov.br/",
-    tema: "gereciamento",
+    url: "#",
+    tema: "gereciamentododesastre",
     subtema: "Atlas Digital de Desastres no Brasil",
     ministerio: "Ministério da Integração e do Desenvolvimento Regional (MIDR)",
     instituicao: "Secretaria Nacional de Proteção e Defesa Civil (Sedec)",
@@ -172,8 +172,8 @@ const links = [
   {
     titulo: "Prevenção de desastres",
     descricao: "Portfólio de projetos e ações do SGB voltados à prevenção de desastres naturais, como movimentos de massa, inundações, estiagens e secas. Inclui ferramentas para análise de risco, suscetibilidade, monitoramento e alertas.",
-    url: "https://www.sgb.gov.br/prevencao-de-desastres",
-    tema: "mapeamento",
+    url: "#",
+    tema: "mapeamentodorisco",
     subtema: "Prevenção de desastres",
     ministerio: "Ministério de Minas e Energia (MME)",
     instituicao: "Serviço Geológico do Brasil (SGB)",
@@ -182,8 +182,8 @@ const links = [
   {
     titulo: "Visualização de dados de desastres",
     descricao: "Visualizador geográfico com dados interativos sobre áreas afetadas por desastres, riscos e suscetibilidades mapeadas, disponível via Geoportal do SGB.",
-    url: "https://geoportal.sgb.gov.br/desastres/",
-    tema: "mapeamento",
+    url: "#",
+    tema: "mapeamentodorisco",
     subtema: "Visualização de dados de desastres",
     ministerio: "Ministério de Minas e Energia (MME)",
     instituicao: "Serviço Geológico do Brasil (SGB)",
@@ -192,8 +192,8 @@ const links = [
   {
     titulo: "Cartografia de Risco Geológico",
     descricao: "Dashboard com informações georreferenciadas sobre risco geológico em diversas localidades brasileiras, com foco em prevenção e apoio à tomada de decisão.",
-    url: "https://geoportal.sgb.gov.br/portal/apps/dashboards/c338199dee3a4d4bb0e43738b424a298",
-    tema: "mapeamento",
+    url: "#",
+    tema: "mapeamentodorisco",
     subtema: "Cartografia de Risco Geológico",
     ministerio: "Ministério de Minas e Energia (MME)",
     instituicao: "Serviço Geológico do Brasil (SGB)",
@@ -202,8 +202,8 @@ const links = [
   {
     titulo: "Cartografia de Suscetibilidade",
     descricao: "Dashboard com dados sobre áreas suscetíveis a movimentos de massa e inundações, importante para planejamento urbano e ações de mitigação.",
-    url: "https://geoportal.sgb.gov.br/portal/apps/dashboards/d55b875b15f6489e957fe9dd4ee5ee4b",
-    tema: "mapeamento",
+    url: "#",
+    tema: "mapeamentodorisco",
     subtema: "Cartografia de Suscetibilidade",
     ministerio: "Ministério de Minas e Energia (MME)",
     instituicao: "Serviço Geológico do Brasil (SGB)",
@@ -212,8 +212,8 @@ const links = [
   {
     titulo: "Manchas de Inundação",
     descricao: "Base de dados com delimitação de manchas de inundação históricas e estimativas, usada para planejamento e prevenção de desastres hidrológicos.",
-    url: "https://www.sgb.gov.br/sace/index_manchas_inundacao.php",
-    tema: "mapeamento",
+    url: "#",
+    tema: "mapeamentodorisco",
     subtema: "Manchas de Inundação",
     ministerio: "Ministério de Minas e Energia (MME)",
     instituicao: "Serviço Geológico do Brasil (SGB)",
@@ -222,7 +222,7 @@ const links = [
   {
     titulo: "Monitoramento e apoio à resposta em desastres",
     descricao: "Atua com tecnologias de geoprocessamento, imagens orbitais, modelagem hidrometeorológica e comunicação em apoio à Defesa Civil e ações humanitárias em desastres. Destaque para a atuação no RS, com suporte à resposta e reconstrução. Opera ferramentas como o SipamHidro (previsão de cheias/estiagens) e o Painel do Fogo (monitoramento de incêndios florestais). Oferece conectividade e aplicativos móveis para operações em campo, inclusive em áreas remotas e sem internet.",
-    url: "https://www.gov.br/censipam/pt-br",
+    url: "#",
     tema: "monitoramento",
     subtema: "Monitoramento e apoio à resposta em desastres",
     ministerio: "Ministério da Defesa",
@@ -232,7 +232,7 @@ const links = [
   {
     titulo: "Monitoramento de Secas e Estiagens",
     descricao: "Monitoramento contínuo de áreas afetadas por estiagens e secas, com base em dados hidroclimáticos e análises de vulnerabilidade.",
-    url: "https://www.sgb.gov.br/sace/index_secas_estiagens.php",
+    url: "#",
     tema: "monitoramento",
     subtema: "Monitoramento de Secas e Estiagens",
     ministerio: "Ministério de Minas e Energia (MME)",
@@ -242,7 +242,7 @@ const links = [
   {
     titulo: "Monitoramentos Especiais de Eventos Críticos",
     descricao: "Página dedicada a análises e acompanhamento especial de eventos críticos em andamento ou com potencial impacto significativo.",
-    url: "https://www.sgb.gov.br/sace/index_monitoramento_especial.php",
+    url: "#",
     tema: "monitoramento",
     subtema: "Monitoramentos Especiais de Eventos Críticos",
     ministerio: "Ministério de Minas e Energia (MME)",
@@ -252,7 +252,7 @@ const links = [
   {
     titulo: "Monitoramento de riscos geo-hidrológicos",
     descricao: "Página com informações e ações relacionadas aos riscos geológicos e hidrológicos monitorados nacionalmente pelo CEMADEN.",
-    url: "https://www.gov.br/cemaden/pt-br/assuntos/riscos-geo-hidrologicos/",
+    url: "#",
     tema: "monitoramento",
     subtema: "Monitoramento de riscos geo-hidrológicos",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
@@ -262,7 +262,7 @@ const links = [
   {
     titulo: "Monitoramento em tempo real",
     descricao: "Acesso ao sistema de monitoramento contínuo de desastres, incluindo chuvas intensas, deslizamentos, inundações e outros eventos críticos.",
-    url: "https://www.gov.br/cemaden/pt-br/assuntos/monitoramento",
+    url: "#",
     tema: "monitoramento",
     subtema: "Monitoramento em tempo real",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
@@ -272,7 +272,7 @@ const links = [
   {
     titulo: "Monitoramento de secas",
     descricao: "Plataforma de análise e acompanhamento das condições de seca em todo o território brasileiro, com base em múltiplos indicadores climáticos.",
-    url: "https://mapasecas.cemaden.gov.br/",
+    url: "#",
     tema: "monitoramento",
     subtema: "Monitoramento de secas",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
@@ -282,7 +282,7 @@ const links = [
   {
     titulo: "Monitoramento de risco de incêndios florestais",
     descricao: "Produto especializado com estimativa e monitoramento de áreas com risco de incêndios florestais, considerando variáveis meteorológicas e ambientais.",
-    url: "https://produtos.cemaden.gov.br/fogo/",
+    url: "#",
     tema: "monitoramento",
     subtema: "Monitoramento de risco de incêndios florestais",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
@@ -292,7 +292,7 @@ const links = [
   {
     titulo: "Plataforma Georisk",
     descricao: "Plataforma dedicada à visualização e análise de dados de riscos geológicos e hidrológicos em interface moderna e interativa.",
-    url: "https://georisk.cemaden.gov.br/",
+    url: "#",
     tema: "monitoramento",
     subtema: "Plataforma Georisk",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
@@ -303,7 +303,7 @@ const links = [
     titulo: "Previsão de tempo e estudos climáticos",
     descricao: "Portal com informações atualizadas sobre previsão do tempo, monitoramento climático, modelagem atmosférica, satélites meteorológicos e emissão de avisos especiais.",
     url: "https://www.cptec.inpe.br/",
-    tema: "previsao",
+    tema: "previsãodotempo",
     subtema: "Previsão de tempo e estudos climáticos",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
     instituicao: "CPTEC/INPE",
@@ -312,7 +312,11 @@ const links = [
 ];
 
 function filtrarLinks() {
-  const filtroTema = document.getElementById("temaLink").value.toLowerCase();
+  
+    let filtroTema = "todos";
+    const selectEl = document.getElementById("temaLink");
+    if (selectEl) filtroTema = selectEl.value.toLowerCase();
+
   const palavraChave = document.getElementById("buscaPalavra").value.toLowerCase();
   const container = document.getElementById("containerLinks");
   container.innerHTML = "";

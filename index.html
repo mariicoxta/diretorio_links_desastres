@@ -3,14 +3,14 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Repositório da Defesa Civil</title>
+  <title>Diretório de Links por Tema</title>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 20px;
-      background-color: #f9fafc;
+      background-color: #f4f7fa;
       color: #333;
     }
 
@@ -21,65 +21,96 @@
       color: #00507A;
     }
 
-    .filtros {
+    .temas-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
       justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      transition: opacity 0.3s ease;
+    }
+
+    .tema-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      width: 160px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      margin-bottom: 30px;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      text-align: center;
     }
 
-    .filtros label {
+    .tema-card:hover {
+      transform: scale(1.05);
+      background-color: #eef4ff;
+    }
+
+    .tema-card span {
+      margin-top: 10px;
       font-weight: bold;
+      font-size: 14px;
     }
 
-    .filtros select,
-    .filtros input {
-      padding: 6px 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+    .tema-card svg {
+      color: #00507A;
+    }
+
+    .voltar {
+      display: none;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .voltar button {
+      background-color: #00507A;
+      color: white;
+      padding: 10px 20px;
       font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .voltar button:hover {
+      background-color: #003e59;
+    }
+
+    .resultados {
+      max-width: 800px;
+      margin: 0 auto;
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .card {
       background: white;
-      border-radius: 12px;
+      border-radius: 10px;
       padding: 20px;
-      margin: 10px auto;
-      max-width: 750px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: scale(1.01);
+      margin: 10px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .card h3 {
       margin-top: 0;
-      font-size: 20px;
       color: #00507A;
+      font-size: 18px;
     }
 
     .card p {
-      margin: 6px 0;
+      margin: 5px 0;
     }
-
-    .tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 500;
-      color: white;
-      background-color: #777;
-      padding: 4px 8px;
-      border-radius: 20px;
-      margin-right: 6px;
-    }
-
-    .tag.tema { background-color: #007BFF; }
-    .tag.ministerio { background-color: #28A745; }
-    .tag.instituicao { background-color: #17A2B8; }
 
     .card a {
       color: #007BFF;
@@ -90,53 +121,62 @@
     .card a:hover {
       text-decoration: underline;
     }
-
-    .icon {
-      width: 14px;
-      height: 14px;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
-
-    @media (max-width: 600px) {
-      .filtros {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .card {
-        margin: 10px 15px;
-      }
-    }
   </style>
 </head>
 <body>
-  <h1>Repositório da Defesa Civil</h1>
+  <h1>Escolha um Tema</h1>
 
-  <div class="filtros">
-    <label for="temaLink">Tema:</label>
-    <select id="temaLink" onchange="filtrarLinks()">
-      <option value="todos">Todos</option>
-      <option value="alerta">Alerta</option>
-      <option value="capacitacao">Capacitação</option>
-      <option value="gerenciamento">Gerenciamento do Desastre</option>
-      <option value="mapeamento">Mapeamento do Risco</option>
-      <option value="monitoramento">Monitoramento</option>
-      <option value="previsao">Previsão do Tempo</option>
-    </select>
-
-    <label for="buscaPalavra">Palavra-chave:</label>
-    <input type="text" id="buscaPalavra" oninput="filtrarLinks()" placeholder="Digite algo..." />
+  <div class="temas-container" id="temasContainer">
+    <div class="tema-card" onclick="filtrarTema('alerta')">
+      <i data-lucide="alert-triangle"></i>
+      <span>Alerta</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('capacitacao')">
+      <i data-lucide="graduation-cap"></i>
+      <span>Capacitação</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('gerenciamento')">
+      <i data-lucide="clipboard-list"></i>
+      <span>Gerenciamento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('mapeamento')">
+      <i data-lucide="map"></i>
+      <span>Mapeamento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('monitoramento')">
+      <i data-lucide="activity"></i>
+      <span>Monitoramento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('previsao')">
+      <i data-lucide="cloud-rain"></i>
+      <span>Previsão do Tempo</span>
+    </div>
   </div>
 
-  <div id="containerLinks"></div>
+  <div class="voltar" id="voltarBtn">
+    <button onclick="mostrarTemas()">← Voltar aos temas</button>
+  </div>
+
+  <div class="resultados" id="containerLinks"></div>
 
   <script src="script.js"></script>
   <script>
-    // Ativar ícones após carregamento
-    window.addEventListener("load", () => {
-      lucide.createIcons();
-    });
+    lucide.createIcons();
+
+    function filtrarTema(tema) {
+      document.getElementById("temaLink").value = tema;
+      document.getElementById("temasContainer").style.display = "none";
+      document.getElementById("voltarBtn").style.display = "block";
+      document.getElementById("containerLinks").style.display = "block";
+      filtrarLinks();
+    }
+
+    function mostrarTemas() {
+      document.getElementById("temasContainer").style.display = "flex";
+      document.getElementById("voltarBtn").style.display = "none";
+      document.getElementById("containerLinks").style.display = "none";
+      document.getElementById("temaLink").value = "todos";
+    }
   </script>
 </body>
 </html>
