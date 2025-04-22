@@ -312,7 +312,7 @@ const links = [
 ];
 
 const inputFiltro = document.getElementById("filtro-palavra");
-const container = document.querySelector(".temas-container");
+const container = document.querySelector("temas-container");
 
 
 function filtrarLinks() {
