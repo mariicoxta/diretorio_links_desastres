@@ -19,82 +19,82 @@
       color: #005d47;
     }  
     
-     .temas-container {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
-     justify-content: center;
-     align-content: center;
-     gap: 20px;
-     padding: 30px;
-     height: 85vh;
-     box-sizing: border-box;
+   .temas-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+      justify-content: center;
+      align-content: center;
+      gap: 10px;
+      padding: 40px;
+      height: 100vh;
+      box-sizing: border-box;
     }
 
-    .tema-card {
-    width: 220px;
-    height: 180px;
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-align: center;
+  .tema-card {
+     width: 220px;
+     height: 180px;
+     background: white;
+     border-radius: 12px;
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+     cursor: pointer;
+     transition: transform 0.2s ease, box-shadow 0.2s ease;
+     text-align: center;
     }
 
      /* Tooltip */
-    .tema-card::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 50%; /* no meio do card */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #005d47;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    white-space: normal;
-    text-align: center;
-    font-size: 14px;
-    width: 220px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 10;
+  .tema-card::after {
+     content: attr(data-tooltip);
+     position: absolute;
+     bottom: 50%; /* no meio do card */
+     left: 50%;
+     transform: translateX(-50%);
+     background-color: #005d47;
+     color: white;
+     padding: 8px 12px;
+     border-radius: 6px;
+     white-space: normal;
+     text-align: center;
+     font-size: 14px;
+     width: 220px;
+     opacity: 0;
+     pointer-events: none;
+     transition: opacity 0.3s ease;
+     z-index: 10;
     }
 
     /* Seta da tooltip */
-    .tema-card::before {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 6px;
-    border-style: solid;
-    border-color: transparent transparent #005d47 transparent;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 9;
+  .tema-card::before {
+     content: '';
+     position: absolute;
+     bottom: 100%;
+     left: 50%;
+     transform: translateX(-50%);
+     border-width: 6px;
+     border-style: solid;
+     border-color: transparent transparent #005d47 transparent;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+     z-index: 9;
     }
 
     /* Mostra tooltip ao passar o mouse */
-    .tema-card:hover::after,
-    .tema-card:hover::before {
-    opacity: 1;
+  .tema-card:hover::after,
+  .tema-card:hover::before {
+      opacity: 1;
     } 
 
-    .tema-card:hover {
+  .tema-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 14px rgba(0,0,0,0.1);
       background-color: #ebfffa;
     }
 
-    #filtro-palavra {
+  #filtro-palavra {
       width: 60%;
       max-width: 500px;
       margin: 20px auto;
@@ -106,30 +106,30 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .tema-card i {
+  .tema-card i {
       margin-bottom: 10px;
-      font-size: 36px;
+      font-size: 34px;
       width: 60px;
       height: 60px;      
     }
 
-    .tema-card span {
+  .tema-card span {
       font-size: 22px;
       font-weight: 600;
       color: #4fb24c;
     }
 
-    .tema-card svg {
+  .tema-card svg {
       width: 60px;
       height: 60px;
       color: #005d47;
      }
-    .voltar {
+  .voltar {
       display: none;
       margin: 20px auto;
       text-align: center;
     }
-    .voltar button {
+  .voltar button {
       background-color: #005d47;
       color: white;
       padding: 10px 20px;
@@ -139,10 +139,10 @@
       cursor: pointer;
       transition: background 0.2s;
     }
-    .voltar button:hover {
+  .voltar button:hover {
       background-color: #005d47;
     }
-    .resultados {
+  .resultados {
       max-width: 800px;
       margin: 0 auto;
       display: none;
@@ -152,27 +152,27 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .card {
+  .card {
       background: white;
       border-radius: 10px;
       padding: 20px;
       margin: 10px 0;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .card h3 {
+  .card h3 {
       margin-top: 0;
       color: #005d47;
       font-size: 18px;
     }
-    .card p {
+  .card p {
       margin: 5px 0;
     }
-    .card a {
+  .card a {
       color: #ffb700;
       text-decoration: none;
       font-weight: bold;
     }
-    .card a:hover {
+  .card a:hover {
       text-decoration: underline;
     }
   </style>
@@ -182,44 +182,44 @@
   <input type="hidden" id="temaLink" value="todos">
   <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
   
-  <div class="temas-container">
-    <div class="tema-card" onclick="filtrarTema('alerta')">
-      <div data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
-      <i data-lucide="alert-triangle"></i>
-      <span>Alerta</span>
+<div class="temas-container">
+  <div class="tema-card" onclick="filtrarTema('alerta')">
+    <div data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
+    <i data-lucide="alert-triangle"></i>
+    <span>Alerta</span>
+  </div>
     </div>
-       </div>
-    <div class="tema-card" onclick="filtrarTema('capacitacao')">
-      <div data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
+  <div class="tema-card" onclick="filtrarTema('capacitacao')">
+    <div data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
       <i data-lucide="graduation-cap"></i>
       <span>Capacitação</span>
-    </div>
-       </div>
-    <div class="tema-card" onclick="filtrarTema('gerenciamento')">
-      <div data-tooltip="Links e ferramentas relacionados ao gerenciamento em caso de desastres.">
+  </div>
+      </div>
+  <div class="tema-card" onclick="filtrarTema('gerenciamento')">
+    <div data-tooltip="Links e ferramentas relacionados ao gerenciamento em caso de desastres.">
       <i data-lucide="clipboard-list"></i>
       <span>Gerenciamento</span>
+  </div>
     </div>
-     </div>
-    <div class="tema-card" onclick="filtrarTema('mapeamento')">
-      <div data-tooltip="Links e ferramentas disponíveis com informações georreferenciadas.">
+  <div class="tema-card" onclick="filtrarTema('mapeamento')">
+    <div data-tooltip="Links e ferramentas disponíveis com informações georreferenciadas.">
       <i data-lucide="map"></i>
       <span>Mapeamento</span>
+  </div>
     </div>
-      </div>
-    <div class="tema-card" onclick="filtrarTema('monitoramento')">
+  <div class="tema-card" onclick="filtrarTema('monitoramento')">
       <div data-tooltip="Links e ferramentas que possibilitam o monitoramento de diversos tipos de eventos climáticos, geológicos ou hidrológicos.">
       <i data-lucide="activity"></i>
       <span>Monitoramento</span>
+  </div>
     </div>
-      </div>
-    <div class="tema-card" onclick="filtrarTema('previsao')">
-      <div data-tooltip="Links e ferramentas com informações atualizadas sobre previsão do tempo e monitoramento climático.">
+  <div class="tema-card" onclick="filtrarTema('previsao')">
+    <div data-tooltip="Links e ferramentas com informações atualizadas sobre previsão do tempo e monitoramento climático.">
       <i data-lucide="cloud-rain"></i>
       <span>Previsão do Tempo</span>
-    </div>
-      </div>
   </div>
+     </div>
+ </div>
 
   <div class="voltar" id="voltarBtn">
     <button onclick="mostrarTemas()">← Voltar aos temas</button>
