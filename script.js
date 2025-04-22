@@ -311,9 +311,7 @@ const links = [
   },
 ];
 
-const inputFiltro = document.getElementById("filtro-palavra");
 const container = document.querySelector(".temas-container");
-
 
 function filtrarLinks() {
   
@@ -340,7 +338,9 @@ function filtrarLinks() {
       <p style="text-align:center;">${link.assunto}</p>
       <p style="text-align:center;"><a href="${link.url}" target="_blank">Acessar link</a></p>
         `;
-       
+    
+const inputFiltro = document.getElementById("filtro-palavra");
+    
 // Exibir todos os cards ao carregar a página
 function renderizarTodos() {
   container.innerHTML = "";
@@ -356,7 +356,7 @@ function renderizarTodos() {
   });
 }
   
- renderizarTodos();
+renderizarTodos();
 
 inputFiltro.addEventListener("input", function () {
   const termo = this.value.toLowerCase().trim();
@@ -374,10 +374,10 @@ inputFiltro.addEventListener("input", function () {
       const card = document.createElement("div");
       card.className = "tema-card";
       card.setAttribute("data-tooltip", tema.descricao);
-      card.innerHTML = `
+      card.innerHTML = '
         <div class="icon">${tema.icon}</div>
         <div class="titulo">${tema.titulo}</div>
-`;
+';
   container.appendChild(card);
   });
 }
