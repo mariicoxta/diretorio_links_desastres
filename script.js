@@ -320,8 +320,8 @@ function filtrarLinks() {
     const container = document.getElementById("containerLinks");
   container.innerHTML = "";
 
-    const inputFiltro = document.getElementById("filtro-palavra");
-    const container = document.querySelector(".temas-container");
+    const container = document.querySelector("temasContainer");
+    container.innerHTML = "";
   
   const filtrados = links.filter(link => {
     const temaOk = filtroTema === "todos" || link.tema === filtroTema;
@@ -341,42 +341,45 @@ function filtrarLinks() {
         `;
     
   // Exibir todos os cards ao carregar a página
-   function renderizarTodos() {
-     container.innerHTML = "";
-     temas.forEach(tema => {
-        const card = document.createElement("div");
-        card.className = "tema-card";
-        card.setAttribute("data-tooltip", tema.descricao);
-        card.innerHTML = `
-      <div class="icon">${tema.icon}</div>
-      <div class="titulo">${tema.titulo}</div>
-    `;
-renderizarTodos();
-
-  inputFiltro.addEventListener("input", function () {
-    const termo = this.value.toLowerCase().trim();
-    container.innerHTML = "";
-
-    const resultados = temas.filter(tema => {
-      const textoCompleto = `${tema.titulo} ${tema.descricao} ${tema.palavrasChave.join(" ")}`.toLowerCase();
-      return textoCompleto.includes(termo);
-  });
-
-    if (resultados.length === 0) {
-      container.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
-    } else {
-      resultados.forEach(tema => {
-        const card = document.createElement("div");
-        card.className = "tema-card";
-        card.setAttribute("data-tooltip", tema.descricao);
-        card.innerHTML = `
-          <div class="icon">${tema.icon}</div>
-          <div class="titulo">${tema.titulo}</div>
-      `;
-      container.appendChild(card);
+function renderizarTodos() {
+  container.innerHTML = "";
+  temas.forEach(tema => {
+    const card = document.createElement("div");
+    card.className = "tema-card";
+    card.setAttribute("data-tooltip", tema.descricao);
+    card.innerHTML = `
+  <div class="icon">${tema.icon}</div>
+  <div class="titulo">${tema.titulo}</div>
+`;
+  container.appendChild(card);
   });
 }
+renderizarTodos();
 
+inputFiltro.addEventListener("input", function () {
+  const termo = this.value.toLowerCase().trim();
+  container.innerHTML = "";
+
+  const resultados = temas.filter(tema => {
+    const textoCompleto = `${tema.titulo} ${tema.descricao} ${tema.palavrasChave.join(" ")}`.toLowerCase();
+    return textoCompleto.includes(termo);
+});
+
+  if (resultados.length === 0) {
+    container.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
+} else {
+    resultados.forEach(tema => {
+      const card = document.createElement("div");
+      card.className = "tema-card";
+      card.setAttribute("data-tooltip", tema.descricao);
+      card.innerHTML = `
+        <div class="icon">${tema.icon}</div>
+        <div class="titulo">${tema.titulo}</div>
+`;
+  container.appendChild(card);
+  });
+}
+});
     
 window.onload = filtrarLinks;
 window.onload = renderizarTodos;
