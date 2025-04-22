@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f7fa;
+      background-color: #f7f9f9;
       color: #333;
     }
 
@@ -53,7 +53,7 @@
     .tema-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-      background-color: #eef4ff;
+      background-color: #ebfffa;
     }
 
     .tema-card i {
@@ -63,13 +63,64 @@
     .tema-card span {
       font-size: 18px;
       font-weight: 600;
-      color: #00507A;
+      color: #4fb24c;
     }
 
     .tema-card svg {
       width: 40px;
       height: 40px;
-      color: #0077b6;
+      color: #005d47;
+     }
+    .voltar {
+      display: none;
+      margin: 20px auto;
+      text-align: center;
+    }
+    .voltar button {
+      background-color: #005d47;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .voltar button:hover {
+      background-color: #005d47;
+    }
+    .resultados {
+      max-width: 800px;
+      margin: 0 auto;
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #005d47;
+      font-size: 18px;
+    }
+    .card p {
+      margin: 5px 0;
+    }
+    .card a {
+      color: #00c596;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .card a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -107,7 +158,11 @@
         <span>Previsão do Tempo</span>
       </div>
     </div>
+  <div class="voltar" id="voltarBtn">
+    <button onclick="mostrarTemas()">← Voltar aos temas</button>
   </div>
+
+  <div class="resultados" id="containerLinks"></div>
 
   <script src="script.js"></script>
   <script>
@@ -118,6 +173,12 @@
       document.getElementById("voltarBtn")?.style.display = "block";
       document.getElementById("containerLinks")?.style.display = "block";
       filtrarLinks();
+    }
+    function mostrarTemas() {
+      document.getElementById("temasContainer").style.display = "flex";
+      document.getElementById("voltarBtn").style.display = "none";
+      document.getElementById("containerLinks").style.display = "none";
+      document.getElementById("temaLink").value = "todos";
     }
   </script>
 </body>
