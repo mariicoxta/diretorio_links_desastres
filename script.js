@@ -312,7 +312,7 @@ const links = [
 ];
 
 const inputFiltro = document.getElementById("filtro-palavra");
-const container = document.querySelector("temasContainer");
+const container = document.querySelector(".temas-container");
 
 inputFiltro.addEventListener("input", function () {
   const termo = this.value.toLowerCase().trim();
@@ -374,7 +374,7 @@ function renderizarTodos() {
   
   const inputFiltro = document.getElementById("filtro-palavra");
   
-  const container = document.querySelector("temasContainer");
+  const container = document.querySelector(".temas-Container");
 container.innerHTML = "";
   
   temas.forEach(tema => {
