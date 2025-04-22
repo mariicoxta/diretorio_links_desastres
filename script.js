@@ -311,78 +311,50 @@ const links = [
   },
 ];
 
-const container = document.querySelector(".temas-container");
+const inputFiltro = document.getElementById("filtro-palavra").value.toLowerCase().trim();
+const inputTema = document.getElementById("temaLink").value.toLowerCase();
+const containerLinks = document.getElementById("containerLinks");
 
-function filtrarLinks() {
+// Chamada ao digitar na busca
+inputFiltro.addEventListener("input", filtrarLinks);
+
+// Chamada ao clicar em um tema
+function selecionarTema(tema) {
+  inputTema.value = tema;
+  filtrarLinks();
+}
+
+const filtrados = links.filter(link => {
+    const temaOk = temaSelecionado === "todos" || link.tema === temaSelecionado;
+    const textoCompleto = `${link.subtema} ${link.instituicao} ${link.ministerio} ${link.assunto}`.toLowerCase();
+    const palavraOk = termo === "" || textoCompleto.includes(termo);
   
-    let filtroTema = "todos";
-    const selectEl = document.getElementById("temaLink");
-    if (selectEl) filtroTema = selectEl.value.toLowerCase();
-
-    const container = document.getElementById("containerLinks");
-  container.innerHTML = "";
- 
-  const filtrados = links.filter(link => {
-    const temaOk = filtroTema === "todos" || link.tema === filtroTema;
-    
-    return temaOk 
+    return temaOk && palavraOk;
   });
+    
+// Exibir todos os cards ao carregar a página
+function renderizarTodos() {
+  container.innerHTML = "";
 
-  filtrados.forEach(link => {
+if (lista.length === 0) {
+    containerLinks.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
+    return;
+  
+  temas.forEach(tema => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "tema-card";
+    card.setAttribute("data-tooltip", tema.descricao);
     card.innerHTML = `
       <h3 style="text-align:center;">${link.subtema}</h3>
       <p style="text-align:center;"><strong>${link.instituicao}</strong></p>
       <p style="text-align:center; font-size:12px; color:#666;">${link.ministerio}</p>
       <p style="text-align:center;">${link.assunto}</p>
       <p style="text-align:center;"><a href="${link.url}" target="_blank">Acessar link</a></p>
-        `;
-    
-const inputFiltro = document.getElementById("filtro-palavra");
-    
-// Exibir todos os cards ao carregar a página
-function renderizarTodos() {
-  container.innerHTML = "";
-  temas.forEach(tema => {
-    const card = document.createElement("div");
-    card.className = "tema-card";
-    card.setAttribute("data-tooltip", tema.descricao);
-    card.innerHTML = `
-      <div class="icon">${tema.icon}</div>
-      <div class="titulo">${tema.titulo}</div>
     `;
-    container.appendChild(card);
+    containerLinks.appendChild(card);
   });
 }
-  
-renderizarTodos();
-
-inputFiltro.addEventListener("input", function () {
-  const termo = this.value.toLowerCase().trim();
-  container.innerHTML = "";
-
-  const resultados = temas.filter(tema => {
-    const textoCompleto = `${tema.titulo} ${tema.descricao} ${tema.palavrasChave.join(" ")}`.toLowerCase();
-    return textoCompleto.includes(termo);
-});
-
-  if (resultados.length === 0) {
-    container.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
-} else {
-    resultados.forEach(tema => {
-      const card = document.createElement("div");
-      card.className = "tema-card";
-      card.setAttribute("data-tooltip", tema.descricao);
-      card.innerHTML = '
-        <div class="icon">${tema.icon}</div>
-        <div class="titulo">${tema.titulo}</div>
-';
-  container.appendChild(card);
-  });
-}
-});
-    
+     
 document.addEventListener("DOMContentLoaded", () => {
   filtrarLinks();
   renderizarTodos();
