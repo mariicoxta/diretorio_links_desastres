@@ -311,34 +311,49 @@ const links = [
   },
 ];
 
-const inputFiltro = document.getElementById("filtro-palavra").value.toLowerCase().trim();
-const inputTema = document.getElementById("temaLink").value.toLowerCase();
-const containerLinks = document.getElementById("containerLinks");
+function filtrarLinks() {
 
-// Chamada ao digitar na busca
+const inputFiltro = document.getElementById("filtro-palavra").value.toLowerCase().trim();
+  inputFiltro = addEventListener("input", filtrarLinks)
+  
+ let filtroTema = "todos";
+    const selectEl = document.getElementById("temaLink");
+    if (selectEl) filtroTema = selectEl.value.toLowerCase(); 
+  
+const container = document.getElementById("containerLinks");
+container.innerHTML = "";
+  
+// Chamada ao clicar em um tema
 inputFiltro.addEventListener("input", filtrarLinks);
 
-// Chamada ao clicar em um tema
-function selecionarTema(tema) {
-  inputTema.value = tema;
+// Chamada ao inserir uma palavra
+function filtroTema(tema) {
+  filtroTema.value = tema;
+  
   filtrarLinks();
 }
 
-const filtrados = links.filter(link => {
+// Lógica de filtro combinando tema + palavra-chave
+function filtrarLinks() {
+  const temaSelecionado = filtroTema.value.toLowerCase();
+  const termo = inputFiltro.value.toLowerCase().trim();
+
+  const filtrados = links.filter(link => {
     const temaOk = temaSelecionado === "todos" || link.tema === temaSelecionado;
     const textoCompleto = `${link.subtema} ${link.instituicao} ${link.ministerio} ${link.assunto}`.toLowerCase();
     const palavraOk = termo === "" || textoCompleto.includes(termo);
-  
+
     return temaOk && palavraOk;
   });
-    
-// Exibir todos os cards ao carregar a página
-function renderizarTodos() {
-  container.innerHTML = "";
 
-if (lista.length === 0) {
+// Exibe os cards de resultado
+function renderizarResultados(lista) {
+  containerLinks.innerHTML = "";
+
+  if (temas.length === 0) {
     containerLinks.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
     return;
+  }
   
   temas.forEach(tema => {
     const card = document.createElement("div");
