@@ -311,6 +311,36 @@ const links = [
   },
 ];
 
+const inputFiltro = document.getElementById("filtro-palavra");
+const container = document.querySelector("temasContainer");
+
+inputFiltro.addEventListener("input", function () {
+  const termo = this.value.toLowerCase().trim();
+  container.innerHTML = ""; // limpa os cards antigos
+
+  const resultados = temas.filter(tema => {
+    const textoCompleto = `${tema.titulo} ${tema.descricao} ${tema.palavrasChave.join(" ")}`.toLowerCase();
+    return textoCompleto.includes(termo);
+  });
+
+  if (resultados.length === 0) {
+    container.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
+  } else {
+    resultados.forEach(tema => {
+      const card = document.createElement("div");
+      card.className = "tema-card";
+      card.innerHTML = `
+        <div class="icon">${tema.icon}</div>
+        <div class="titulo">${tema.titulo}</div>
+      `;
+      card.setAttribute("data-tooltip", tema.descricao);
+      container.appendChild(card);
+    });
+  }
+});
+
+
+
 function filtrarLinks() {
   
     let filtroTema = "todos";
@@ -336,23 +366,26 @@ function filtrarLinks() {
       <p style="text-align:center;">${link.assunto}</p>
       <p style="text-align:center;"><a href="${link.url}" target="_blank">Acessar link</a></p>
         `;
-    
+   
 
-const inputFiltro = document.getElementById("filtro-palavra");
-const container = document.querySelector(".temas-container");
     
 // Exibir todos os cards ao carregar a página
 function renderizarTodos() {
-  container.innerHTML = "";
+  
+  const inputFiltro = document.getElementById("filtro-palavra");
+  
+  const container = document.querySelector("temasContainer");
+container.innerHTML = "";
+  
   temas.forEach(tema => {
     const card = document.createElement("div");
     card.className = "tema-card";
     card.setAttribute("data-tooltip", tema.descricao);
     card.innerHTML = `
       <div class="icon">${tema.icon}</div>
-      
       <div class="titulo">${tema.titulo}</div>
     `;
+    
   container.appendChild(card);
   });
 }
