@@ -194,7 +194,7 @@
   <input type="hidden" id="temaLink" value="todos">
   <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
   
-<div class="temas-container" id="temas-container">
+<div class="temas-container" id="temasContainer">
   
   <div class="tema-card" onclick="filtrarTema('alerta')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
    <i data-lucide="alert-triangle"></i>
@@ -239,16 +239,29 @@
   lucide.createIcons();
   function filtrarTema(tema) {
     document.getElementById("temaLink").value = tema;
-    document.getElementById("temas-container").style.display = "none";
+    document.getElementById("temasContainer").style.display = "none";
     document.getElementById("voltarBtn").style.display = "block";
     document.getElementById("containerLinks").style.display = "block";
     filtrarLinks();
    }
    function mostrarTemas() {
-     document.getElementById("temas-container").style.display = "grid";
+     document.getElementById("temasContainer").style.display = "grid";
      document.getElementById("voltarBtn").style.display = "none";
      document.getElementById("containerLinks").style.display = "none";
      document.getElementById("temaLink").value = "todos";
+
+  function filtrarPalavra(link) {
+    document.getElementById("filtro-palavra").value = tema;
+    document.getElementById("temasContainer").style.display = "none";
+    document.getElementById("voltarBtn").style.display = "block";
+    document.getElementById("containerLinks").style.display = "block";
+    filtrarLinks();
+   }
+   function mostrarPalavra() {
+     document.getElementById("temasContainer").style.display = "grid";
+     document.getElementById("voltarBtn").style.display = "none";
+     document.getElementById("containerLinks").style.display = "none";
+     document.getElementById("filtro-palavra").value = "todos";
    }
   </script>
 </body>
