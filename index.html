@@ -180,7 +180,8 @@
 <body>
   <h1>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</h1>
   <input type="hidden" id="temaLink" value="todos">
-
+  <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
+  
   <div class="temas-container" id="temasContainer">
     <div class="tema-card" onclick="filtrarTema('alerta')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
       <i data-lucide="alert-triangle"></i>
@@ -206,6 +207,13 @@
       <i data-lucide="cloud-rain"></i>
       <span>Previsão do Tempo</span>
     </div>
+    <div class="tema.icon">
+      <i data-lucide="magnifying glass"></i>
+      <span>Filtro</span>
+    </div>
+    <div class="titulo">${tema.titulo}</div>
+      <i data-lucide="cloud-rain"></i>
+      <span>""</span>
   </div>
 
   <div class="voltar" id="voltarBtn">
