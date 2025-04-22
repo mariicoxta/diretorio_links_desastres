@@ -197,33 +197,33 @@
 <div class="temas-container" id="temas-container">
   
   <div class="tema-card" onclick="filtrarTema('alerta')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
-    <i data-lucide="alert-triangle"></i>
-    <span>Alerta</span>
+   <i data-lucide="alert-triangle"></i>
+   <span>Alerta</span>
   </div>
   
   <div class="tema-card" onclick="filtrarTema('capacitacao')" data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
-      <i data-lucide="graduation-cap"></i>
-      <span>Capacitação</span>
+    <i data-lucide="graduation-cap"></i>
+    <span>Capacitação</span>
   </div>
     
   <div class="tema-card" onclick="filtrarTema('gerenciamento')" data-tooltip="Links e ferramentas relacionados ao gerenciamento em caso de desastres.">
-      <i data-lucide="clipboard-list"></i>
-      <span>Gerenciamento</span>
+    <i data-lucide="clipboard-list"></i>
+    <span>Gerenciamento</span>
   </div>
   
   <div class="tema-card" onclick="filtrarTema('mapeamento')" data-tooltip="Links e ferramentas disponíveis com informações georreferenciadas.">
-      <i data-lucide="map"></i>
-      <span>Mapeamento</span>
+    <i data-lucide="map"></i>
+    <span>Mapeamento</span>
   </div>
   
   <div class="tema-card" onclick="filtrarTema('monitoramento')" data-tooltip="Links e ferramentas que possibilitam o monitoramento de diversos tipos de eventos climáticos, geológicos ou hidrológicos.">
-      <i data-lucide="activity"></i>
-      <span>Monitoramento</span>
+    <i data-lucide="activity"></i>
+    <span>Monitoramento</span>
   </div>
  
   <div class="tema-card" onclick="filtrarTema('previsao')" data-tooltip="Links e ferramentas com informações atualizadas sobre previsão do tempo e monitoramento climático.">
-      <i data-lucide="cloud-rain"></i>
-      <span>Previsão do Tempo</span>
+    <i data-lucide="cloud-rain"></i>
+    <span>Previsão do Tempo</span>
   </div>
   
  </div>
@@ -233,22 +233,23 @@
   </div>
 
 <div class="resultados" id="containerLinks"></div>
-  <script src="script.js"></script>
-  <script>
-    lucide.createIcons();
-    function filtrarTema(tema) {
-      document.getElementById("temaLink").value = tema;
-      document.getElementById("temas-container").style.display = "none";
-      document.getElementById("voltarBtn").style.display = "block";
-      document.getElementById("containerLinks").style.display = "block";
-      filtrarLinks();
-    }
-    function mostrarTemas() {
-      document.getElementById("temas-container").style.display = "grid";
-      document.getElementById("voltarBtn").style.display = "none";
-      document.getElementById("containerLinks").style.display = "none";
-      document.getElementById("temaLink").value = "todos";
-    }
+  
+<script src="script.js"></script>
+<script>
+  lucide.createIcons();
+  function filtrarTema(tema) {
+    document.getElementById("temaLink").value = tema;
+    document.getElementById("temas-container").style.display = "none";
+    document.getElementById("voltarBtn").style.display = "block";
+    document.getElementById("containerLinks").style.display = "block";
+    filtrarLinks();
+   }
+   function mostrarTemas() {
+     document.getElementById("temas-container").style.display = "grid";
+     document.getElementById("voltarBtn").style.display = "none";
+     document.getElementById("containerLinks").style.display = "none";
+     document.getElementById("temaLink").value = "todos";
+   }
   </script>
 </body>
 </html>
