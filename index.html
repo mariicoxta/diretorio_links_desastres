@@ -12,6 +12,13 @@
       background-color: #f7f9f9;
       color: #333;
     }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
+      color: #005d47;
+    }  
+    }
 
     .container {
       max-width: 1200px;
@@ -26,7 +33,7 @@
 
     header h1 {
       font-size: 32px;
-      color: #00507A;
+      color:  #005d47;
       margin-bottom: 10px;
     }
 
@@ -125,39 +132,36 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Repositório do Clima</h1>
-    </header>
+  <h1>Repositório Defesa Civil</h1>
+  <input type="hidden" id="temaLink" value="todos">
 
-    <input type="hidden" id="temaLink" value="todos">
-
-    <div class="temas-container" id="temasContainer">
-      <div class="tema-card" onclick="filtrarTema('alerta')">
-        <i data-lucide="alert-triangle"></i>
-        <span>Alerta</span>
-      </div>
-      <div class="tema-card" onclick="filtrarTema('capacitacao')">
-        <i data-lucide="graduation-cap"></i>
-        <span>Capacitação</span>
-      </div>
-      <div class="tema-card" onclick="filtrarTema('gerenciamento')">
-        <i data-lucide="clipboard-list"></i>
-        <span>Gerenciamento</span>
-      </div>
-      <div class="tema-card" onclick="filtrarTema('mapeamento')">
-        <i data-lucide="map"></i>
-        <span>Mapeamento</span>
-      </div>
-      <div class="tema-card" onclick="filtrarTema('monitoramento')">
-        <i data-lucide="activity"></i>
-        <span>Monitoramento</span>
-      </div>
-      <div class="tema-card" onclick="filtrarTema('previsao')">
-        <i data-lucide="cloud-rain"></i>
-        <span>Previsão do Tempo</span>
-      </div>
+  <div class="temas-container" id="temasContainer">
+    <div class="tema-card" onclick="filtrarTema('alerta')">
+      <i data-lucide="alert-triangle"></i>
+      <span>Alerta</span>
     </div>
+    <div class="tema-card" onclick="filtrarTema('capacitacao')">
+      <i data-lucide="graduation-cap"></i>
+      <span>Capacitação</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('gerenciamento')">
+      <i data-lucide="clipboard-list"></i>
+      <span>Gerenciamento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('mapeamento')">
+      <i data-lucide="map"></i>
+      <span>Mapeamento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('monitoramento')">
+      <i data-lucide="activity"></i>
+      <span>Monitoramento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('previsao')">
+      <i data-lucide="cloud-rain"></i>
+      <span>Previsão do Tempo</span>
+    </div>
+  </div>
+
   <div class="voltar" id="voltarBtn">
     <button onclick="mostrarTemas()">← Voltar aos temas</button>
   </div>
@@ -170,8 +174,8 @@
     function filtrarTema(tema) {
       document.getElementById("temaLink").value = tema;
       document.getElementById("temasContainer").style.display = "none";
-      document.getElementById("voltarBtn")?.style.display = "block";
-      document.getElementById("containerLinks")?.style.display = "block";
+      document.getElementById("voltarBtn").style.display = "block";
+      document.getElementById("containerLinks").style.display = "block";
       filtrarLinks();
     }
     function mostrarTemas() {
