@@ -311,24 +311,30 @@ const links = [
   },
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
-  const inputFiltro = document.getElementById("filtro-palavra");
-  const temaLink = document.getElementById("temaLink");
-  const containerLinks = document.getElementById("containerLinks");
+function filtrarLinks() {
+document.addEventListener("DOMContentLoaded", () => {  
+    let filtroTema = "todos";
+    const selectEl = document.getElementById("temaLink");
+    if (selectEl) filtroTema = selectEl.value.toLowerCase();
+
+    const inputFiltro = document.getElementById("filtro-palavra");
+  
+    const container = document.getElementById("containerLinks");
+  container.innerHTML = "";
+
+
+  const filtrados = links.filter((links) => {
+    const temaOk = filtroTema === "todos" || link.tema === filtroTema;
+    const textoCompleto = `${links.subtema} ${links.instituicao} ${links.ministerio} ${links.assunto}`.toLowerCase();
+    const palavraOk = inputFiltro === "" || textoCompleto.includes(inputFiltro);  
+
+    return temaOk && palavraOk;    
+  });
 
   // Função para filtrar e renderizar links
   function filtrarLinks() {
-    const termo = inputFiltro.value.toLowerCase().trim();
-    const temaSelecionado = temaLink.value.toLowerCase();
-
-  // Filtrar links com base no tema e na palavra-chave
-    const filtrados = links.filter((links) => {
-      const temaOk = temaSelecionado === "todos" || links.tema === temaSelecionado;
-      const textoCompleto = `${links.subtema} ${links.instituicao} ${links.ministerio} ${links.assunto}`.toLowerCase();
-      const palavraOk = termo === "" || textoCompleto.includes(termo);
-
-      return temaOk && palavraOk;
-    });
+    const palavraOk = inputFiltro.value.toLowerCase().trim();
+    const temaOk = filtroTema.value.toLowerCase();
 
     renderizarResultados(filtrados);
   }
@@ -363,17 +369,3 @@ document.addEventListener("DOMContentLoaded", () => {
   filtrarLinks();
 });
 
- lucide.createIcons();
-  function filtrarTema(tema) {
-    document.getElementById("temaLink").value = tema;
-    document.getElementById("temasContainer").style.display = "none";
-    document.getElementById("voltarBtn").style.display = "block";
-    document.getElementById("containerLinks").style.display = "block";
-    filtrarLinks();
-   }
-   function mostrarTemas() {
-     document.getElementById("temasContainer").style.display = "grid";
-     document.getElementById("voltarBtn").style.display = "none";
-     document.getElementById("containerLinks").style.display = "none";
-     document.getElementById("temaLink").value = "todos";
-   }
