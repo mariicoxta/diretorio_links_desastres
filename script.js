@@ -3,7 +3,7 @@ const links = [
     titulo: "Defesa Civil Alerta",
     descricao: "Ferramenta de envio de alertas de emergência do Governo Federal, coordenada pela Defesa Civil Nacional e pela Anatel, utilizando a tecnologia Cell Broadcast para avisar e orientar as pessoas em localidades com risco iminente de desastres.",
     url: "https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/defesa-civil-alerta",
-    tema: 'alerta',
+    tema:'alerta',
     subtema: "Defesa Civil Alerta",
     ministerio: "Ministério da Integração e do Desenvolvimento Regional (MIDR)",
     instituicao: "Secretaria Nacional de Proteção e Defesa Civil (Sedec)",
@@ -13,7 +13,7 @@ const links = [
     titulo: "TV 3.0 – nova geração da televisão digital",
     descricao: "Iniciativa conjunta entre governo, setor privado e academia para implantação da TV digital 3.0, com imagem em 4K/8K, áudio imersivo, interatividade, integração com internet e capacidade avançada para alertas de emergência. Permite sobreposição de mensagens, vídeos ao vivo, mapas interativos e interrupção de programação para emergências. Sistema previsto para início em 2025.",
     url: "https://www.gov.br/mcom/pt-br/assuntos/radio-e-tv-aberta/tv-30",
-    tema: 'alerta',
+    tema:'alerta',
     subtema: "TV 3.0 – nova geração da televisão digital",
     ministerio: "Ministério das Comunicações (MCom)",
     instituicao: "MCom / Fórum SBTVD",
@@ -23,7 +23,7 @@ const links = [
     titulo: "Sistema de Alerta de Eventos Críticos (SACE)",
     descricao: "Plataforma que reúne dados sobre secas, estiagens, inundações e outros eventos críticos com alertas e monitoramentos para apoio à defesa civil.",
     url: "https://www.sgb.gov.br/sace/",
-    tema: 'alerta',
+    tema:'alerta',
     subtema: "Sistema de Alerta de Eventos Críticos (SACE)",
     ministerio: "Ministério de Minas e Energia (MME)",
     instituicao: "Serviço Geológico do Brasil (SGB)",
@@ -33,7 +33,7 @@ const links = [
     titulo: "Painel de alertas",
     descricao: "Plataforma de consulta aos alertas vigentes emitidos pelo CEMADEN, com mapa interativo e atualização em tempo real.",
     url: "https://painelalertas.cemaden.gov.br/",
-    tema: 'alerta',
+    tema:'alerta',
     subtema: "Painel de alertas",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
     instituicao: "Centro Nacional de Monitoramento e Alertas de Desastres Naturais (CEMADEN)",
@@ -43,7 +43,7 @@ const links = [
     titulo: "Mapa interativo",
     descricao: "Ferramenta geoespacial que permite visualizar riscos, alertas, dados pluviométricos e hidrológicos, além de vulnerabilidades.",
     url: "https://mapainterativo.cemaden.gov.br/",
-    tema: 'alerta',
+    tema:'alerta',
     subtema: "Mapa interativo",
     ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
     instituicao: "Centro Nacional de Monitoramento e Alertas de Desastres Naturais (CEMADEN)",
@@ -311,13 +311,13 @@ const links = [
   },
 ];
 
-const inputFiltro = document.getElementById("filtro-palavra");
-const containerLinks = document.getElementById("containerLinks");
-const selectEl = document.getElementById("temaLink");
+const inputFiltro = document.getElementById("filtro-palavra").valeu;
+const containerLinks = document.getElementById("containerLinks").value;
+const selectEl = document.getElementById("tema-link").value;
 
 function filtrarLinks() {
     let filtroTema = "todos";
-    const selectEl = document.getElementById("temaLink");
+    const selectEl = document.getElementById("tema-link");
     if (selectEl) filtroTema = selectEl.value.toLowerCase();
 
   const termo = inputFiltro.value.toLowerCase().trim();
