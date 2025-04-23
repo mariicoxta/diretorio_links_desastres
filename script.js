@@ -311,54 +311,53 @@ const links = [
   },
 ];
 
-const inputFiltro = document.getElementById("filtro-palavra");
-const containerLinks = document.getElementById("containerLinks");
-const selectEl = document.getElementById("tema-link");
-
 function filtrarLinks() {
+  
     let filtroTema = "todos";
     const selectEl = document.getElementById("tema-link");
     if (selectEl) filtroTema = selectEl.value.toLowerCase();
 
+  const inputFiltro = document.getElementById("filtro-palavra");
+  
+  const containerLinks = document.getElementById("containerLinks");
+container.innerHTML = ""; 
+
+  
   const termo = inputFiltro.value.toLowerCase().trim();
 }
   const filtrados = link.filter(link => {
     const temaOk = filtroTema === "todos" || link.tema === filtroTema;
+    
     const textoCompleto = `${link.subtema} ${link.instituicao} ${link.ministerio} ${link.assunto}`.toLowerCase();
+    
     const palavraOk = termo === "" || textoCompleto.includes(inputFiltro);
+    
     return temaOk && palavraOk;
   });
 
-// Exibe os cards de resultado
-  renderizarResultados(filtrados);
-
-// Função para exibir os cards filtrados
-  function renderizarResultados(lista) {
-    containerLinks.innerHTML = "";
-
-  if (lista.length === 0) {
-      containerLinks.innerHTML = "<p style="text-align:center;">Nenhum resultado encontrado.</p>";
-  return;
-   }
-
-   lista.forEach(link => {
+   filtrados.forEach(link => {
       const card = document.createElement("div");
-      card.className = "tema-card";
+      card.className = "card";
       card.innerHTML = `
         <h3 style="text-align:center;">${link.subtema}</h3>
         <p style="text-align:center;"><strong>${link.instituicao}</strong></p>
         <p style="text-align:center; font-size:12px; color:#666;">${link.ministerio}</p>
         <p style="text-align:center;">${link.assunto}</p>
         <p style="text-align:center;"><a href="${link.url}" target="_blank">Acessar link</a></p>
-      `;
+          `;
       containerLinks.appendChild(card);
     });
   }
+  if (filtrados.length === 0) {
+      containerLinks.innerHTML = "<p style="text-align:center;">Nenhum resultado encontrado.</p>";
+  return;
+   }
 
   // Adicionar evento de input para filtragem em tempo real
   inputFiltro.addEventListener("input", filtrarLinks);
 
   // Filtrar links ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
-  filtrarLinks();
+  filtrarLinks(); 
+  renderizarResultados(filtrados);
 });
