@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</title>
+    <title>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</title>
+  <base href="/repositorioclimatico/">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
@@ -22,7 +22,7 @@
     
    .temas-container {
      display: grid;
-     grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+     grid-template-columns: repeat(3, 1fr);
      place-items: center;
      gap: 20px;
      padding: 40px;
@@ -30,20 +30,7 @@
      box-sizing: border-box;
     }
 
-  @media (max-width: 768px) {
-   .temas-container {
-     grid-template-columns: repeat(1, 1fr); /* uma coluna só no celular */
-     padding: 20px;
-     height: auto;
-    }
-  .tema-card {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-    }
-  }  
-
-  .tema-card {
+   .tema-card {
     width: 200px;
     height: 200px;
     background: white;
@@ -160,11 +147,11 @@
     margin: 0 auto;
     display: none;
     animation: fadeIn 0.5s ease;
-  }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
-  }
+  }}
+    
   .card {
     background: white;
     border-radius: 10px;
@@ -190,49 +177,50 @@
   }
   </style>
 </head>
+  
 <body>
   <h1>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</h1>
   <input type="hidden" id="temaLink" value="todos">
   <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
-  
-  <div class="temas-container" id="temasContainer">
-          
+
+  <div id="temasContainer" class="temas-container">
     <div class="tema-card" onclick="filtrarTema('alerta')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
-     <i data-lucide="alert-triangle"></i>
-     <span>Alerta</span>
+      <i data-lucide="graduation-cap"></i>
+       <span>Alerta</span>
     </div>
     <div class="tema-card" onclick="filtrarTema('capacitacao')" data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
-      <i data-lucide="graduation-cap"></i>
+     <i data-lucide="graduation-cap"></i>
       <span>Capacitação</span>
     </div>
     <div class="tema-card" onclick="filtrarTema('gerenciamento')" data-tooltip="Links e ferramentas relacionados ao gerenciamento em caso de desastres.">
       <i data-lucide="clipboard-list"></i>
-      <span>Gerenciamento</span>
+       <span>Gerenciamento</span>
     </div>
     <div class="tema-card" onclick="filtrarTema('mapeamento')" data-tooltip="Links e ferramentas disponíveis com informações georreferenciadas.">
       <i data-lucide="map"></i>
-      <span>Mapeamento</span>
+       <span>Mapeamento</span>
     </div>
     <div class="tema-card" onclick="filtrarTema('monitoramento')" data-tooltip="Links e ferramentas que possibilitam o monitoramento de diversos tipos de eventos climáticos, geológicos ou hidrológicos.">
       <i data-lucide="activity"></i>
-      <span>Monitoramento</span>
+       <span>Monitoramento</span>
     </div>
     <div class="tema-card" onclick="filtrarTema('previsao')" data-tooltip="Links e ferramentas com informações atualizadas sobre previsão do tempo e monitoramento climático.">
       <i data-lucide="cloud-rain"></i>
-      <span>Previsão do Tempo</span>
+       <span>Previsão do Tempo</span>
     </div>
-  </div>
-
+  </div>   
+  
   <div class="resultados" id="containerLinks"></div>
 
-  <div class="voltar" id="voltarBtn">
+  <div class="voltar" id="voltarBtn" style="display: none;"> 
     <button onclick="mostrarTemas()">← Voltar aos temas</button>
   </div>
   
   <script src="script.js"></script>
   <script>
     lucide.createIcons();
-    function filtrarTema(link) {
+    
+    function filtrarTema(tema) {
       document.getElementById("temaLink").value = tema;
       document.getElementById("temasContainer").style.display = "none";
       document.getElementById("voltarBtn").style.display = "block";
