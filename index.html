@@ -579,15 +579,9 @@ function renderizarResultados(lista) {
 
  lista.forEach(link => {
   const card = document.createElement("div");
-  card.className = "tema-card-result";
-  card.innerHTML = `
-    <h3>${link.subtema}</h3>
-    <p><strong>${link.instituicao}</strong></p>
-    <p style="font-size:12px; color:#666;">${link.ministerio}</p>
-    <p>${link.assunto}</p>
-    <p><a href="${link.url}" target="_blank">Acessar link</a></p>
-  `;
-    containerLinks.appendChild(card);
+  tema-card.className = "tema-card-result";
+  tema-card.innerHTML = ``;
+   containerLinks.appendChild(card);
   });
 }
 
