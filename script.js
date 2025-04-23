@@ -311,7 +311,7 @@ const links = [
   },
 ];
 
-const inputFiltro = document.getElementById("filtro-palavra").valeu;
+const inputFiltro = document.getElementById("filtro-palavra").value;
 const containerLinks = document.getElementById("containerLinks").value;
 const selectEl = document.getElementById("tema-link").value;
 
