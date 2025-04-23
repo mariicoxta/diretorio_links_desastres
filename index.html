@@ -557,8 +557,12 @@ function filtrarLinks() {
 
   const filtrados = links.filter(link => {
     const temaOk = temaSelecionado === "todos" || link.tema.toLowerCase() === temaSelecionado;
-    const palavraOk = termo === "" || textoCompleto.includes(termo);
+    const palavraOk = termo === "" ||
+      link.titulo.toLowerCase().includes(termo) ||
+      link.descricao.toLowerCase().includes(termo) ||
+      link.assunto.toLowerCase().includes(termo);
     return temaOk && palavraOk;
+    return temaSelecionado === "todos" || link.tema === temaSelecionado;
 });
 
 renderizarResultados(filtrados);
