@@ -182,35 +182,36 @@
 <body>
   <h1>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</h1>
   <input type="hidden" id="tema-link" value="todos">
-  <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
-
+  
   <div class="temas-container" id="temasContainer">
     
-    <div class="tema-card" onclick="filtrarTema('ALT')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
+    <div class="card" onclick="filtrarTema('ALT')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
       <i data-lucide="alert-triangle"></i>
        <span>Alerta</span>
     </div>
-    <div class="tema-card" onclick="filtrarTema('CPCT')" data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
+    <div class="card" onclick="filtrarTema('CPCT')" data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
      <i data-lucide="graduation-cap"></i>
       <span>Capacitação</span>
     </div>
-      <div class="tema-card" onclick="filtrarTema('GERE')" data-tooltip="Links e ferramentas relacionados ao gerenciamento em caso de desastres.">
+      <div class="card" onclick="filtrarTema('GERE')" data-tooltip="Links e ferramentas relacionados ao gerenciamento em caso de desastres.">
       <i data-lucide="clipboard-list"></i>
        <span>Gerenciamento</span>
     </div>
-    <div class="tema-card" onclick="filtrarTema('MP')" data-tooltip="Links e ferramentas disponíveis com informações georreferenciadas.">
+    <div class="card" onclick="filtrarTema('MP')" data-tooltip="Links e ferramentas disponíveis com informações georreferenciadas.">
       <i data-lucide="map"></i>
        <span>Mapeamento</span>
     </div>
-    <div class="tema-card" onclick="filtrarTema('MNT')" data-tooltip="Links e ferramentas que possibilitam o monitoramento de diversos tipos de eventos climáticos, geológicos ou hidrológicos.">
+    <div class="card" onclick="filtrarTema('MNT')" data-tooltip="Links e ferramentas que possibilitam o monitoramento de diversos tipos de eventos climáticos, geológicos ou hidrológicos.">
       <i data-lucide="activity"></i>
        <span>Monitoramento</span>
     </div>
-    <div class="tema-card" onclick="filtrarTema('PVS')" data-tooltip="Links e ferramentas com informações atualizadas sobre previsão do tempo e monitoramento climático.">
+    <div class="card" onclick="filtrarTema('PVS')" data-tooltip="Links e ferramentas com informações atualizadas sobre previsão do tempo e monitoramento climático.">
       <i data-lucide="cloud-rain"></i>
        <span>Previsão do Tempo</span>
     </div>
   </div>   
+
+  <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
   
   <div class="resultados" id="containerLinks"></div>
 
