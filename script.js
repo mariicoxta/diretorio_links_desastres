@@ -311,66 +311,54 @@ const links = [
   },
 ];
 
-function filtrarLinks() {
-
-const inputFiltro = document.getElementById("filtro-palavra").value.toLowerCase().trim();
-  inputFiltro = addEventListener("input", filtrarLinks)
-  
- let filtroTema = "todos";
-    const selectEl = document.getElementById("temaLink");
-    if (selectEl) filtroTema = selectEl.value.toLowerCase(); 
-  
-const container = document.getElementById("containerLinks");
-container.innerHTML = "";
-  
-// Chamada ao clicar em um tema
-inputFiltro.addEventListener("input", filtrarLinks);
-
-// Chamada ao inserir uma palavra
-function filtroTema(tema) {
-  filtroTema.value = tema;
-  
-  filtrarLinks();
-}
-
-// Lógica de filtro combinando tema + palavra-chave
-function filtrarLinks() {
-  const temaSelecionado = filtroTema.value.toLowerCase();
-  const termo = inputFiltro.value.toLowerCase().trim();
-
-  const filtrados = links.filter(link => {
-    const temaOk = temaSelecionado === "todos" || link.tema === temaSelecionado;
-    const textoCompleto = `${link.subtema} ${link.instituicao} ${link.ministerio} ${link.assunto}`.toLowerCase();
-    const palavraOk = termo === "" || textoCompleto.includes(termo);
-
-    return temaOk && palavraOk;
-  });
-
-// Exibe os cards de resultado
-function renderizarResultados(lista) {
-  containerLinks.innerHTML = "";
-
-  if (temas.length === 0) {
-    containerLinks.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
-    return;
-  }
-  
-  temas.forEach(tema => {
-    const card = document.createElement("div");
-    card.className = "tema-card";
-    card.setAttribute("data-tooltip", tema.descricao);
-    card.innerHTML = `
-      <h3 style="text-align:center;">${link.subtema}</h3>
-      <p style="text-align:center;"><strong>${link.instituicao}</strong></p>
-      <p style="text-align:center; font-size:12px; color:#666;">${link.ministerio}</p>
-      <p style="text-align:center;">${link.assunto}</p>
-      <p style="text-align:center;"><a href="${link.url}" target="_blank">Acessar link</a></p>
-    `;
-    containerLinks.appendChild(card);
-  });
-}
-     
 document.addEventListener("DOMContentLoaded", () => {
+  const inputFiltro = document.getElementById("filtro-palavra");
+  const temaLink = document.getElementById("temaLink");
+  const containerLinks = document.getElementById("containerLinks");
+
+  // Função para filtrar e renderizar links
+  function filtrarLinks() {
+    const termo = inputFiltro.value.toLowerCase().trim();
+    const temaSelecionado = temaLink.value.toLowerCase();
+
+  // Filtrar links com base no tema e na palavra-chave
+    const filtrados = links.filter((link) => {
+      const temaOk = temaSelecionado === "todos" || link.tema === temaSelecionado;
+      const textoCompleto = `${link.subtema} ${link.instituicao} ${link.ministerio} ${link.assunto}`.toLowerCase();
+      const palavraOk = termo === "" || textoCompleto.includes(termo);
+
+      return temaOk && palavraOk;
+    });
+
+    renderizarResultados(filtrados);
+  }
+
+  // Função para renderizar os resultados no container
+  function renderizarResultados(lista) {
+    containerLinks.innerHTML = "";
+
+    if (lista.length === 0) {
+      containerLinks.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
+      return;
+    }
+
+    lista.forEach((link) => {
+      const card = document.createElement("div");
+      card.className = "tema-card";
+      card.innerHTML = `
+        <h3 style="text-align:center;">${link.subtema}</h3>
+        <p style="text-align:center;"><strong>${link.instituicao}</strong></p>
+        <p style="text-align:center; font-size:12px; color:#666;">${link.ministerio}</p>
+        <p style="text-align:center;">${link.assunto}</p>
+        <p style="text-align:center;"><a href="${link.url}" target="_blank">Acessar link</a></p>
+      `;
+      containerLinks.appendChild(card);
+    });
+  }
+
+  // Adicionar evento de input para filtragem em tempo real
+  inputFiltro.addEventListener("input", filtrarLinks);
+
+  // Filtrar links ao carregar a página
   filtrarLinks();
-  renderizarTodos();
 });
