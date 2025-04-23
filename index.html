@@ -30,7 +30,7 @@
      box-sizing: border-box;
     }
 
-   .tema-card {
+   .card {
     width: 200px;
     height: 200px;
     background: white;
@@ -47,7 +47,7 @@
   }
 
      /* Tooltip */
-  .tema-card::after {
+  .card::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: 50%; /* no meio do card */
@@ -68,7 +68,7 @@
   }
 
     /* Seta da tooltip */
-  .tema-card::before {
+  .card::before {
     content: '';
     position: absolute;
     bottom: 100%;
@@ -83,12 +83,12 @@
   }
 
     /* Mostra tooltip ao passar o mouse */
-  .tema-card:hover::after,
-  .tema-card:hover::before {
+  .card:hover::after,
+  .card:hover::before {
     opacity: 1;
   } 
 
-  .tema-card:hover {
+  .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 14px rgba(0,0,0,0.1);
     background-color: #ebfffa;
@@ -106,7 +106,7 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
 
-  .tema-card i {
+  .card i {
     margin-bottom: 10px;
     font-size: 34px;
     width: 60px;
@@ -114,13 +114,13 @@
     align-items: center;
    }
 
-  .tema-card span {
+  .card span {
     font-size: 22px;
     font-weight: 600;
     color: #4fb24c;
   }
 
-  .tema-card svg {
+  .card svg {
     width: 60px;
     height: 60px;
     color: #005d47;
@@ -224,7 +224,7 @@
     lucide.createIcons();
     
     function filtrarTema(tema) {
-      document.getElementById("tema-link").value = "tema";
+      document.getElementById("tema-link"; "filtro-palavra").value = "tema";
       document.getElementById("temasContainer").style.display = "none";
       document.getElementById("voltarBtn").style.display = "block";
       document.getElementById("containerLinks").style.display = "block";
