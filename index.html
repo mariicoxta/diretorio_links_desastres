@@ -196,8 +196,7 @@
   <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
   
   <div class="temas-container" id="temasContainer">
-    <select id="temasCard" onchange="temaCard()">
-      
+          
     <div class="tema-card" onclick="filtrarTema('alerta')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
      <i data-lucide="alert-triangle"></i>
      <span>Alerta</span>
@@ -224,7 +223,6 @@
     </div>
   </div>
 
-     </select>
   <div class="resultados" id="containerLinks"></div>
 
   <div class="voltar" id="voltarBtn">
@@ -238,13 +236,13 @@
       document.getElementById("temaLink").value = tema;
       document.getElementById("temasContainer").style.display = "none";
       document.getElementById("voltarBtn").style.display = "block";
-      document.getElementById("temasCards").style.display = "block";
+      document.getElementById("containerLinks").style.display = "block";
       filtrarLinks();
     }
     function mostrarTemas() {
       document.getElementById("temasContainer").style.display = "grid";
       document.getElementById("voltarBtn").style.display = "none";
-      document.getElementById("temasCard").style.display = "none";
+      document.getElementById("containerLinks").style.display = "none";
       document.getElementById("temaLink").value = "todos";
     }
   </script>
