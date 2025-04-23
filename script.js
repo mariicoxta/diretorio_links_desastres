@@ -312,6 +312,60 @@ const links = [
 ];
 
 function filtrarLinks() {
+document.addEventListener("DOMContentLoaded", () => {  
+    let filtroTema = "todos";
+    const selectEl = document.getElementById("temaLink");
+    if (selectEl) filtroTema = selectEl.value.toLowerCase();
+}
+    const inputFiltro = document.getElementById("filtro-palavra");
+  
+    const container = document.getElementById("containerLinks");
+  container.innerHTML = "";
+
+}
+  const filtrados = links.filter((links) => {
+    const temaOk = filtroTema === "todos" || link.tema === filtroTema;
+    const textoCompleto = `${links.subtema} ${links.instituicao} ${links.ministerio} ${links.assunto}`.toLowerCase();
+    const palavraOk = inputFiltro === "" || textoCompleto.includes(inputFiltro);  
+
+    return temaOk && palavraOk;    
+  });
+
+// Exibe os cards de resultado
+  function renderizarResultados(lista) {
+    containerLinks.innerHTML = "";
+
+  if (temas.length === 0) {
+      containerLinks.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
+  return;
+   }
+
+   lista.forEach((links) => {
+      const card = document.createElement("div");
+      card.className = "tema-card";
+      card.innerHTML = `
+        <h3 style="text-align:center;">${links.subtema}</h3>
+        <p style="text-align:center;"><strong>${links.instituicao}</strong></p>
+        <p style="text-align:center; font-size:12px; color:#666;">${links.ministerio}</p>
+        <p style="text-align:center;">${links.assunto}</p>
+        <p style="text-align:center;"><a href="${links.url}" target="_blank">Acessar link</a></p>
+      `;
+      containerLinks.appendChild(card);
+    });
+  }
+
+  // Adicionar evento de input para filtragem em tempo real
+  inputFiltro.addEventListener("input", filtrarLinks);
+
+  // Filtrar links ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+  filtrarLinks();
+  renderizarTodos();
+});
+
+  
+
+function filtrarLinks() {
 
 const inputFiltro = document.getElementById("filtro-palavra").value.toLowerCase().trim();
   inputFiltro = addEventListener("input", filtrarLinks)
@@ -329,47 +383,7 @@ inputFiltro.addEventListener("input", filtrarLinks);
 // Chamada ao inserir uma palavra
 function filtroTema(tema) {
   filtroTema.value = tema;
-  
-  filtrarLinks();
 }
-
-// Lógica de filtro combinando tema + palavra-chave
-function filtrarLinks() {
-  const temaSelecionado = filtroTema.value.toLowerCase();
-  const termo = inputFiltro.value.toLowerCase().trim();
-
-  const filtrados = links.filter(link => {
-    const temaOk = temaSelecionado === "todos" || link.tema === temaSelecionado;
-    const textoCompleto = `${link.subtema} ${link.instituicao} ${link.ministerio} ${link.assunto}`.toLowerCase();
-    const palavraOk = termo === "" || textoCompleto.includes(termo);
-
-    return temaOk && palavraOk;
-  });
-
-// Exibe os cards de resultado
-function renderizarResultados(lista) {
-  containerLinks.innerHTML = "";
-
-  if (temas.length === 0) {
-    containerLinks.innerHTML = "<p style='text-align:center;'>Nenhum resultado encontrado.</p>";
-    return;
-  }
-  
-  temas.forEach(tema => {
-    const card = document.createElement("div");
-    card.className = "tema-card";
-    card.setAttribute("data-tooltip", tema.descricao);
-    card.innerHTML = `
-      <h3 style="text-align:center;">${link.subtema}</h3>
-      <p style="text-align:center;"><strong>${link.instituicao}</strong></p>
-      <p style="text-align:center; font-size:12px; color:#666;">${link.ministerio}</p>
-      <p style="text-align:center;">${link.assunto}</p>
-      <p style="text-align:center;"><a href="${link.url}" target="_blank">Acessar link</a></p>
-    `;
-    containerLinks.appendChild(card);
-  });
-}
-     
 document.addEventListener("DOMContentLoaded", () => {
   filtrarLinks();
   renderizarTodos();
