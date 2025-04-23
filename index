@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background-color: #f7f9f9;
+      color: #005d47;
+  }
+    h1 {
+     text-align: center;
+     margin-bottom: 30px;
+     font-size: 28px;
+     color: #005d47;
+    }  
+    
+   .temas-container {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+     place-items: center;
+     gap: 20px;
+     padding: 40px;
+     height: 100vh;
+     box-sizing: border-box;
+    }
+
+  @media (max-width: 768px) {
+   .temas-container {
+     grid-template-columns: repeat(1, 1fr); /* uma coluna só no celular */
+     padding: 20px;
+     height: auto;
+    }
+  .tema-card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    }
+  }  
+
+  .tema-card {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+  }
+
+     /* Tooltip */
+  .tema-card::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 50%; /* no meio do card */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #005d47;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: normal;
+    text-align: center;
+    font-size: 14px;
+    width: 220px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+  }
+
+    /* Seta da tooltip */
+  .tema-card::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #005d47 transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 9;
+  }
+
+    /* Mostra tooltip ao passar o mouse */
+  .tema-card:hover::after,
+  .tema-card:hover::before {
+    opacity: 1;
+  } 
+
+  .tema-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    background-color: #ebfffa;
+    }
+
+  #filtro-palavra {
+    width: 60%;
+    max-width: 500px;
+    margin: 20px auto;
+    display: block;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #005d47;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .tema-card i {
+    margin-bottom: 10px;
+    font-size: 34px;
+    width: 60px;
+    height: 60px;      
+   }
+
+  .tema-card span {
+    font-size: 22px;
+    font-weight: 600;
+    color: #4fb24c;
+  }
+
+  .tema-card svg {
+    width: 60px;
+    height: 60px;
+    color: #005d47;
+  }
+  .voltar {
+    display: none;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .voltar button {
+    background-color: #005d47;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .voltar button:hover {
+    background-color: #005d47;
+  }
+  .resultados {
+    max-width: 800px;
+    margin: 0 auto;
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+  }
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .card h3 {
+    margin-top: 0;
+    color: #005d47;
+    font-size: 18px;
+  }
+  .card p {
+    margin: 5px 0;
+  }
+  .card a {
+    color: #ffb700;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .card a:hover {
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+  <h1>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</h1>
+  <input type="hidden" id="temaLink" value="todos">
+  <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
+  
+  <div class="temas-container" id="temasContainer">
+          
+    <div class="tema-card" onclick="filtrarTema('alerta')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
+     <i data-lucide="alert-triangle"></i>
+     <span>Alerta</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('capacitacao')" data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
+      <i data-lucide="graduation-cap"></i>
+      <span>Capacitação</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('gerenciamento')" data-tooltip="Links e ferramentas relacionados ao gerenciamento em caso de desastres.">
+      <i data-lucide="clipboard-list"></i>
+      <span>Gerenciamento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('mapeamento')" data-tooltip="Links e ferramentas disponíveis com informações georreferenciadas.">
+      <i data-lucide="map"></i>
+      <span>Mapeamento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('monitoramento')" data-tooltip="Links e ferramentas que possibilitam o monitoramento de diversos tipos de eventos climáticos, geológicos ou hidrológicos.">
+      <i data-lucide="activity"></i>
+      <span>Monitoramento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('previsao')" data-tooltip="Links e ferramentas com informações atualizadas sobre previsão do tempo e monitoramento climático.">
+      <i data-lucide="cloud-rain"></i>
+      <span>Previsão do Tempo</span>
+    </div>
+  </div>
+
+  <div class="resultados" id="containerLinks"></div>
+
+  <div class="voltar" id="voltarBtn">
+    <button onclick="mostrarTemas()">← Voltar aos temas</button>
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+    lucide.createIcons();
+    function filtrarTema(link) {
+      document.getElementById("temaLink").value = tema;
+      document.getElementById("temasContainer").style.display = "none";
+      document.getElementById("voltarBtn").style.display = "block";
+      document.getElementById("containerLinks").style.display = "block";
+      filtrarLinks();
+    }
+    function mostrarTemas() {
+      document.getElementById("temasContainer").style.display = "grid";
+      document.getElementById("voltarBtn").style.display = "none";
+      document.getElementById("containerLinks").style.display = "none";
+      document.getElementById("temaLink").value = "todos";
+    }
+  </script>
+</body>
+</html>
