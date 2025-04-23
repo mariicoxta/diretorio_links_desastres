@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
     <title>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</title>
   <script src="https://unpkg.com/lucide@latest"></script>
-  
   <style>
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -13,38 +13,39 @@
       background-color: #f7f9f9;
       color: #005d47;
   }
-    h1 {
-     text-align: center;
-     margin-bottom: 30px;
-     font-size: 28px;
-     color: #005d47;
-    }  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #005d47;
+  }  
     
    .temas-container {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     place-items: center;
-     gap: 20px;
-     padding: 40px;
-     height: 100vh;
-     box-sizing: border-box;
-    }
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   justify-content: center;
+   align-content: center;
+   gap: 20px;
+   padding: 40px;
+   height: 110vh;
+   box-sizing: border-box;
+  }
 
    .tema-card {
-     width: 200px;
-     height: 200px;
-     background: white;
-     border-radius: 12px;
-     padding: 20px;
-     display: grid;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-     cursor: pointer;
-     transition: transform 0.2s ease, box-shadow 0.2s ease;
-     text-align: center;
-    }
+   width: 200px;
+   height: 200px;
+   background: white;
+   border-radius: 12px;
+   padding: 20px;
+   display: grid;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+   cursor: pointer;
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+   text-align: center;
+  }
 
      /* Tooltip */
    .tema-card::after {
@@ -83,12 +84,12 @@
     }
 
     /* Mostra tooltip ao passar o mouse */
-   .card:hover::after,
-   .card:hover::before {
+   .tema-card:hover::after,
+   .tema-card:hover::before {
      opacity: 1;
     } 
 
-   .card:hover {
+   .tema-card:hover {
      transform: translateY(-5px);
      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
      background-color: #ebfffa;
@@ -106,7 +107,7 @@
      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-   .card i {
+   .tema-card i {
      margin-bottom: 10px;
      font-size: 34px;
      width: 60px;
@@ -114,13 +115,13 @@
      align-items: center;
     }
 
-   .card span {
+   .tema-card span {
      font-size: 22px;
      font-weight: 600;
      color: #4fb24c;
    }
 
-   .card svg {
+   .tema-card svg {
      width: 60px;
      height: 60px;
      color: #005d47;
@@ -148,10 +149,11 @@
      margin: 0 auto;
      display: none;
      animation: fadeIn 0.5s ease;
+   }
    @keyframes fadeIn {
      from { opacity: 0; transform: translateY(10px); }
        to { opacity: 1; transform: translateY(0); }
-   }}
+   }
     
    .card {
      background: white;
@@ -181,8 +183,8 @@
 <body>
   <h1>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</h1>
 
-  <input type="hidden" id="tema-link" value="todos">
-  <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
+  <input type="hidden" id="temaLink" value="todos">
+  <input type="text" id="palavra" placeholder="Filtrar por palavra-chave..." />
 
 <div class="temas-container" id="temasContainer">
   <div class="tema-card" onclick="filtrarTema('ALT')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
@@ -211,11 +213,11 @@
   </div>
 </div>
 
-  <div class="voltar" id="voltarBtn" style="display: none;"> 
+  <div class="voltar" id="voltarBtn"> 
     <button onclick="mostrarTemas()">← Voltar aos temas</button>
   </div>
 
-<div id="containerLinks" class="resultados"></div>
+<div class="resultados" id="containerLinks"></div>
 
 <script>
   const links = [
@@ -531,8 +533,24 @@
     }
  ];
 
-const inputTema = document.getElementById("tema-link"); 
-const inputFiltro = document.getElementById("filtro-palavra");
+function filtrarLinks() {
+  const temaSelecionado = inputTema.value.toLowerCase();
+  const termo = inputPalavra.value.toLowerCase().trim();
+
+  const filtrados = links.filter(link => {
+    const temaOk = temaSelecionado === "todos" || link.tema.toLowerCase() === temaSelecionado;
+    const palavraOk = termo === "" ||
+      link.titulo.toLowerCase().includes(termo) ||
+      link.descricao.toLowerCase().includes(termo) ||
+      link.assunto.toLowerCase().includes(termo);
+    return temaOk && palavraOk;
+   });
+
+renderizarResultados(filtrados);
+}
+  
+const inputTema = document.getElementById("temaLink"); 
+const inputFiltro = document.getElementById("palavra");
 const containerLinks = document.getElementById("containerLinks");
 
 function filtrarTema(tema) {
@@ -551,28 +569,11 @@ function mostrarTemas() {
   inputTema.value = "todos";
 }
 
-function filtrarLinks() {
-  const temaSelecionado = inputTema.value.toLowerCase();
-  const termo = inputPalavra.value.toLowerCase().trim();
-
-  const filtrados = links.filter(link => {
-    const temaOk = temaSelecionado === "todos" || link.tema.toLowerCase() === temaSelecionado;
-    const palavraOk = termo === "" ||
-      link.titulo.toLowerCase().includes(termo) ||
-      link.descricao.toLowerCase().includes(termo) ||
-      link.assunto.toLowerCase().includes(termo);
-    return temaOk && palavraOk;
-    return temaSelecionado === "todos" || link.tema === temaSelecionado;
-});
-
-renderizarResultados(filtrados);
-}
-
 function renderizarResultados(lista) {
   containerLinks.innerHTML = "";
 
   if (lista.length === 0) {
-  containerLinks.innerHTML = "<p>Nenhum resultado encontrado. </p>";
+  containerLinks.innerHTML = "<p>Nenhum resultado encontrado.</p>";
   return; 
 }
 
