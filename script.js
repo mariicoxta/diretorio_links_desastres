@@ -322,9 +322,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const temaSelecionado = temaLink.value.toLowerCase();
 
   // Filtrar links com base no tema e na palavra-chave
-    const filtrados = links.filter((link) => {
-      const temaOk = temaSelecionado === "todos" || link.tema === temaSelecionado;
-      const textoCompleto = `${link.subtema} ${link.instituicao} ${link.ministerio} ${link.assunto}`.toLowerCase();
+    const filtrados = links.filter((links) => {
+      const temaOk = temaSelecionado === "todos" || links.tema === temaSelecionado;
+      const textoCompleto = `${links.subtema} ${links.instituicao} ${links.ministerio} ${links.assunto}`.toLowerCase();
       const palavraOk = termo === "" || textoCompleto.includes(termo);
 
       return temaOk && palavraOk;
@@ -342,15 +342,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    lista.forEach((link) => {
+    lista.forEach((links) => {
       const card = document.createElement("div");
       card.className = "tema-card";
       card.innerHTML = `
-        <h3 style="text-align:center;">${link.subtema}</h3>
-        <p style="text-align:center;"><strong>${link.instituicao}</strong></p>
-        <p style="text-align:center; font-size:12px; color:#666;">${link.ministerio}</p>
-        <p style="text-align:center;">${link.assunto}</p>
-        <p style="text-align:center;"><a href="${link.url}" target="_blank">Acessar link</a></p>
+        <h3 style="text-align:center;">${links.subtema}</h3>
+        <p style="text-align:center;"><strong>${links.instituicao}</strong></p>
+        <p style="text-align:center; font-size:12px; color:#666;">${links.ministerio}</p>
+        <p style="text-align:center;">${links.assunto}</p>
+        <p style="text-align:center;"><a href="${links.url}" target="_blank">Acessar link</a></p>
       `;
       containerLinks.appendChild(card);
     });
@@ -362,3 +362,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Filtrar links ao carregar a página
   filtrarLinks();
 });
+
+ lucide.createIcons();
+  function filtrarTema(tema) {
+    document.getElementById("temaLink").value = tema;
+    document.getElementById("temasContainer").style.display = "none";
+    document.getElementById("voltarBtn").style.display = "block";
+    document.getElementById("containerLinks").style.display = "block";
+    filtrarLinks();
+   }
+   function mostrarTemas() {
+     document.getElementById("temasContainer").style.display = "grid";
+     document.getElementById("voltarBtn").style.display = "none";
+     document.getElementById("containerLinks").style.display = "none";
+     document.getElementById("temaLink").value = "todos";
+   }
