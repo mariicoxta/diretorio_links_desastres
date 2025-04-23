@@ -553,6 +553,7 @@ const inputTema = document.getElementById("temaLink");
 const inputFiltro = document.getElementById("palavra");
 const containerLinks = document.getElementById("containerLinks");
 
+lucide.createIcons();  
 function filtrarTema(tema) {
   inputTema.value = tema;
   inputFiltro.value = "";
@@ -585,6 +586,7 @@ function renderizarResultados(lista) {
   });
 }
 
+  
 inputFiltro.addEventListener("input", () => {
   document.getElementById("temasContainer").style.display = "none";
   document.getElementById("voltarBtn").style.display = "block";
