@@ -180,12 +180,12 @@
   
 <body>
   <h1>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</h1>
-  <input type="hidden" id="temaLink" value="todos">
+  <input type="hidden" id="tema-link" value="todos">
   <input type="text" id="filtro-palavra" placeholder="Filtrar por palavra-chave..." />
 
   <div id="temasContainer" class="temas-container">
     <div class="tema-card" onclick="filtrarTema('alerta')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
-      <i data-lucide="graduation-cap"></i>
+      <i data-lucide="alert-triangle"></i>
        <span>Alerta</span>
     </div>
     <div class="tema-card" onclick="filtrarTema('capacitacao')" data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
@@ -221,7 +221,7 @@
     lucide.createIcons();
     
     function filtrarTema(tema) {
-      document.getElementById("temaLink").value = tema;
+      document.getElementById("tema-link").value = tema;
       document.getElementById("temasContainer").style.display = "none";
       document.getElementById("voltarBtn").style.display = "block";
       document.getElementById("containerLinks").style.display = "block";
@@ -231,7 +231,7 @@
       document.getElementById("temasContainer").style.display = "grid";
       document.getElementById("voltarBtn").style.display = "none";
       document.getElementById("containerLinks").style.display = "none";
-      document.getElementById("temaLink").value = "todos";
+      document.getElementById("tema-link").value = "todos";
     }
   </script>
 </body>
