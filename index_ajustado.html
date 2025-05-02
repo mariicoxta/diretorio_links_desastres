@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</title>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background-color: #f7f9f9;
+      color: #005d47;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #005d47;
+    }
+    #palavra {
+      width: 60%;
+      max-width: 500px;
+      margin: 20px auto;
+      display: block;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #005d47;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .temas-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    .tema-card {
+      width: 200px;
+      height: 200px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      position: relative;
+    }
+    .tema-card svg {
+      width: 60px;
+      height: 60px;
+      color: #005d47;
+      margin-bottom: 10px;
+    }
+    .tema-card span {
+      font-size: 22px;
+      font-weight: 600;
+      color: #4fb24c;
+    }
+    .tema-card::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #005d47;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      white-space: normal;
+      text-align: center;
+      font-size: 14px;
+      width: 220px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+    .tema-card::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent #005d47 transparent;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 9;
+    }
+    .tema-card:hover::after,
+    .tema-card:hover::before {
+      opacity: 1;
+    }
+    .tema-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      background-color: #ebfffa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Repositório da Gestão Climática e da Gestão de Riscos e de Desastres</h1>
+  <input type="hidden" id="temaLink" value="todos">
+  <input type="text" id="palavra" placeholder="Filtrar por palavra-chave..." />
+  <div class="temas-container" id="temasContainer">
+    <div class="tema-card" onclick="filtrarTema('ALT')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
+      <i data-lucide="alert-triangle"></i>
+      <span>Alerta</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('CPCT')" data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
+      <i data-lucide="graduation-cap"></i>
+      <span>Capacitação</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('GERE')" data-tooltip="Links e ferramentas relacionados ao gerenciamento em caso de desastres.">
+      <i data-lucide="clipboard-list"></i>
+      <span>Gerenciamento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('MP')" data-tooltip="Links e ferramentas disponíveis com informações georreferenciadas.">
+      <i data-lucide="map"></i>
+      <span>Mapeamento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('MNT')" data-tooltip="Links e ferramentas que possibilitam o monitoramento de diversos tipos de eventos climáticos, geológicos ou hidrológicos.">
+      <i data-lucide="activity"></i>
+      <span>Monitoramento</span>
+    </div>
+    <div class="tema-card" onclick="filtrarTema('PVS')" data-tooltip="Links e ferramentas com informações atualizadas sobre previsão do tempo e monitoramento climático.">
+      <i data-lucide="cloud-rain"></i>
+      <span>Previsão do Tempo</span>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
